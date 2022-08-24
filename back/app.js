@@ -6,7 +6,7 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const port = 8000;
 
-//seteamos la carpeta public para archivos estáticos
+//Use express static to declare our public folder
 app.use(express.static('public'))
 
 //para procesar datos enviados desde forms
@@ -21,13 +21,13 @@ app.use(session({
 
   try {
     db.authenticate()
-    console.log("conexion exitosa")
+    console.log('Succesfull connection')
 } catch (error) {
-    console.log(`el error en conexion es: ${error}`)
+    console.log(`The error is: ${error}`)
 }
 
 dotenv.config({path: './env/.env'})
 
 app.listen(port, ()=>{
-    console.log('SERVER UP runnung in http://localhost:8000')
+    console.log('SERVER UP running in http://localhost:8000')
 })
