@@ -11,4 +11,4 @@ const commentModel = db.define('comments', {
     postId:{type:DataTypes.INTEGER}// Foreign key to connect table post
 })
 //Export model
-module.exports = postModel;
+module.exports = commentModel;

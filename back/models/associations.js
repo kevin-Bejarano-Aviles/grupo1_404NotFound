@@ -1,7 +1,7 @@
 //Requires models
-const userModel = require('./usersModel');
-const commentModel = require('./commentsModel');
-const postModel = require('./postsModel');
+const userModel = require('./userModel');
+const commentModel = require('./commentModel');
+const postModel = require('./postModel');
 //Define relations
 userModel.hasMany(postModel,{foreignKey:'usersId'});
 postModel.belongsTo(userModel,{foreignKey:'usersId'});
