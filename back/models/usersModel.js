@@ -11,4 +11,4 @@ const userModel = db.define('users', {
     email:{type:DataTypes.STRING}
 })
 //Export model
-module.exports = userModel
+module.exports = userModel;
