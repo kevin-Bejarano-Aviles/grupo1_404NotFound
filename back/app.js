@@ -5,7 +5,10 @@ const dotenv = require('dotenv');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const port = 8000;
+const users = require('./routes/users.js')
 
+//const post = require('./routes/post.js')
+//const comments = require('./routes/comment')
 //Use express static to declare our public folder
 app.use(express.static('public'))
 
@@ -18,6 +21,12 @@ app.use(session({
     resave: false,
     saveUninitialized: true
   }));
+
+
+//app.use('/posts', post)
+app.use('/users', users);
+//app.use('/comments',)
+
 
   try {
     db.authenticate()
