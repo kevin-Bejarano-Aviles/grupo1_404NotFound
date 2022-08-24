@@ -5,7 +5,7 @@ import '../App.css';
 const WelcomePage = () => {
   return (
     <div className="bg-pink-200">
-        <button className="bg-red-400">Hoal</button>
+        <button className="bg-red-500 animate-spin">Hoal</button>
 
     </div>
   )
