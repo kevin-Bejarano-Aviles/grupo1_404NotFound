@@ -1,15 +1,40 @@
+import { useState } from 'react';
+import Comment from './Comment';
 import avatar from '../img/avatar-default.png';
 import imgPostExample from '../img/post-example.png';
 import likeIcon from '../img/icon-like.svg';
 import commentIcon from '../img/icon-comment.svg';
 import messageIcon from '../img/icon-message.svg';
-
 import iconThreeDots from '../img/icon-three-dots.svg';
 
 function PostItem({ item }) {
 
-  const comment = () => {
+  const comments = [
+    {
+      id: 1,
+      urlImage: avatar,
+      name: 'Nombre',
+      surname: 'Apellido',
+      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ipsa!'
+    },
+    {
+      id: 2,
+      urlImage: avatar,
+      name: 'Nombre',
+      surname: 'Apellido',
+      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ipsa!'
+    }
+  ];
 
+  const [state, setState] = useState(false);
+
+  const toggleState = () => {
+    state ? setState(false) : setState(true);
+  };
+
+  const sendComment = e => {
+    e.preventDefault();
+    console.log(e.target.previousElementSibling.value);
   };
 
   return (
@@ -30,30 +55,25 @@ function PostItem({ item }) {
           <img src={likeIcon} alt="Like" />
           <span>Like</span>
         </button>
-        <button className='flex justify-center gap-2 basis-2/4 py-5' onClick={comment()}>
+        <button className='flex justify-center gap-2 basis-2/4 py-5' onClick={() => toggleState()}>
           <img src={commentIcon} alt="Comment" />
           <span>Comment</span>
         </button>
-        {/** Enviar comentario oculto */}
-        <form className='flex gap-3 basis-full p-4 border-t-2'>
-          <input className='grow px-4 bg-pastelgray rounded-3xl' type='text' placeholder='Agregar un comentario...' />
-          <input className='py-2 px-2 text-white font-semibold bg-pastelred rounded-full' type='image' src={messageIcon} />
-        </form>
-        {/** Ver comentarios ocultos */}
-        <div className='flex flex-col basis-full p-4 border-t-2 bg-pastelgray'>
-          <div className='flex items-center gap-2 '>
-            <img className='w-7 rounded-full' src={avatar} alt="Avatar" />
-            <p className='font-semibold'>Nombre Completo</p>
-          </div>
-          <p className='pl-9'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ipsa!</p>
+        {/** Start of hidden comments */}
+        <div className={`basis-full ${state ? 'hola' : 'hidden'}`}>
+          <form className='flex gap-3 basis-full p-4 border-t-2'>
+            <input className='grow px-4 bg-pastelgray rounded-3xl' type='text' placeholder='Agregar un comentario...' />
+            <input className='py-2 px-2 text-white font-semibold bg-pastelred rounded-full' type='image' src={messageIcon} onClick={e => sendComment(e)}/>
+          </form>
+          <ul>
+            {
+              comments.map(comment => (
+                <Comment key={comment.id} comment={comment} />
+              ))
+            }
+          </ul>
         </div>
-        <div className='flex flex-col basis-full p-4 border-t-2 bg-pastelgray'>
-          <div className='flex items-center gap-2 '>
-            <img className='w-7 rounded-full' src={avatar} alt="Avatar" />
-            <p className='font-semibold'>Nombre Completo</p>
-          </div>
-          <p className='pl-9'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ipsa!</p>
-        </div>
+        {/** End of hidden comments */}
       </footer>
     </article>
   )

@@ -5,23 +5,23 @@ function PostList() {
   const array = [
     {
       id: 1,
-      name: 'Lautaro',
-      surname: 'Coria',
-      post: 'Mi mamá ya no puede cuidar a estos cachorros. Estoy buscando reubicarlos con cualquier persona Interesada, preferiblemente alguien que los cuide bien y les brinde un hogar amoroso.'
+      name: 'Nombre',
+      surname: 'Apellido',
+      post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, a doloremque! Eveniet rem itaque iste saepe similique corrupti maiores voluptatibus tenetur quam facere repellat necessitatibus quidem autem, fugit, nostrum voluptatum?'
     },
     {
       id: 2,
-      name: 'Gonzalo',
-      surname: 'Alvarez',
-      post: 'Mi mamá ya no puede cuidar a estos cachorros. Estoy buscando reubicarlos con cualquier persona Interesada, preferiblemente alguien que los cuide bien y les brinde un hogar amoroso.'
+      name: 'Nombre',
+      surname: 'Apellido',
+      post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, a doloremque! Eveniet rem itaque iste saepe similique corrupti maiores voluptatibus tenetur quam facere repellat necessitatibus quidem autem, fugit, nostrum voluptatum?'
     }
   ];
 
   return (
-    <ul className='flex flex-col gap-8'>
+    <ul className='flex flex-col gap-8 mb-24'>
       {
         array.map(item => (
-          <PostItem item={item}/>
+          <PostItem key={item.id} item={item}/>
         ))
       }
     </ul>
