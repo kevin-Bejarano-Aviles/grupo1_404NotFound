@@ -10,7 +10,8 @@ module.exports = {
         pastelpink: '#f4e3e3',
         pastelgray: '#f4f4f4',
         pastelblue: '#2f3542',
-        pastelred: '#ff6b81'
+        pastelred: '#ff6b81',
+        pastelblack: '#0f1419'
       },
     },
   },

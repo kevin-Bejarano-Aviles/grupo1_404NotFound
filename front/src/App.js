@@ -8,7 +8,7 @@ import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='text-pastelblack'>
       <Routes>
         <Route path={'/'} element={<WelcomePage />} />
         <Route path={'/login'} element={<LoginPage />} />
