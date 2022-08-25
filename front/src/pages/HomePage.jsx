@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 
 function HomePage() {
   return (
-    <div>
+    <div className='flex flex-col gap-8 pt-28 p-4 min-h-screen bg-pastelgray'>
       <Header />
       <NewState />
       <PostList />
