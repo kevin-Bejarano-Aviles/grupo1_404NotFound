@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import NewState from '../components/NewState';
 import PostList from '../components/PostList';
+import Layout from '../components/Layout';
 
 function HomePage() {
   return (
@@ -8,7 +9,7 @@ function HomePage() {
       <Header />
       <NewState />
       <PostList />
-      {/** Navbar creado por Sofi */}
+      <Layout />
     </div>
   )
 }
