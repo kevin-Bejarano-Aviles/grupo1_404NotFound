@@ -1,10 +1,10 @@
 import React from 'react'
 import Input from '../components/Input';
 import IconLogIn from '../components/IconLogIn';
-import DogRigth from '../img/TheLittleThings-DogRigth.png'
-import DogLeft from '../img/TheLittleThings-DogLeft.png'
-import { Link } from 'react-router-dom'
-import '../App.css'
+import DogRigth from '../img/TheLittleThings-DogRigth.png';
+import DogLeft from '../img/TheLittleThings-DogLeft.png';
+import { Link } from 'react-router-dom';
+import '../App.css';
 function LogIn() {
   return (
     <div className="h-screen  w-full bg-blue-300 bg-clip-border overflow-x-hidden">
@@ -20,18 +20,18 @@ function LogIn() {
            <div>
             <h3 className='relative top-8 left-5 font-mono font-bold text-sm text-white'>Nombre:</h3>
             <Input 
-             Tipo="text"
-             Name="nombre"
+             Tipo="usuario"
+             Name="loguser"
             />
             <h3 className='relative top-8 left-5 font-mono font-bold text-sm text-white'>Contraseña:</h3>
             <Input 
-             Tipo="password"
-             Name="nombre"
+             Tipo="logpass"
+             Name="logpass"
             />
             <div /* className="w-8 bg-red-600" */>
             <Input 
              Tipo="submit"
-             Valor= "Registrate"
+             Valor= "Inicia Sesión"
             />
             </div>
             </div>

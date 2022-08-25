@@ -3,6 +3,7 @@ import '../App.css';
 import logo from '../img/logo.png';
 import dog from '../img/dog.png';
 import cat from '../img/cat.png';
+import { Link } from 'react-router-dom';
 
 
 const WelcomePage = () => {
@@ -26,8 +27,8 @@ const WelcomePage = () => {
 
       <div className="h-44 w-46 relative bottom-24">
 
-        <button className="relative left-44 h-14 w-36 rounded-3xl bg-pastelblue text-pastelgray ">Registrate</button>
-        <button className="relative top-44 left-60 h-14 w-36  rounded-3xl bg-pastelred text-pastelgray">Inicia Sesión</button>
+      <Link to={"/sign-up"} className="relative left-44 h-14 w-36 rounded-3xl bg-pastelblue text-pastelgray ">Registrate</Link>
+      <Link to={"/login"} className="relative top-44 left-60 h-14 w-36  rounded-3xl bg-pastelred text-pastelgray">Inicia Sesión</Link>
 
       </div>
 
