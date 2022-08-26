@@ -7,7 +7,8 @@ const methodOverride = require('method-override');
 const port = 8000;
 const users = require('./routes/users.js')
 
-//const post = require('./routes/post.js')
+
+const postRoute = require('./routes/post.js')
 //const comments = require('./routes/comment')
 //Use express static to declare our public folder
 app.use(express.static('public'))
@@ -23,7 +24,7 @@ app.use(session({
   }));
 
 
-//app.use('/posts', post)
+app.use('/posts', postRoute);
 app.use('/users', users);
 //app.use('/comments',)
 

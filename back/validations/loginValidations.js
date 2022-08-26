@@ -3,9 +3,9 @@ const usersModel = require('../models/userModel');
 const bcryptjs = require('bcryptjs');
 
 module.exports=[
-    check('loguser').notEmpty().withMessage("El nombre de usuario no puede estar vacio"),
-    check('logpass').notEmpty().withMessage("La contraseña no puede estar vacia"),
-    body('loguser').custom(value=>{
+    check('logUser').notEmpty().withMessage("El nombre de usuario no puede estar vacio"),
+    check('logPass').notEmpty().withMessage("La contraseña no puede estar vacia"),
+    body('logUser').custom(value=>{
         return usersModel.findOne({
             where:{
                 user:value
@@ -16,11 +16,11 @@ module.exports=[
             }
         })
     }),
-    body('logpass').custom((value,{req})=>{
+    body('logPass').custom((value,{req})=>{
         return usersModel.findOne(
             {
                 where:{
-                    user:req.body.loguser
+                    user:req.body.logUser
                 }
             }
         ).then(result=>{
