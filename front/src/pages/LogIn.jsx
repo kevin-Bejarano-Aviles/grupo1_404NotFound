@@ -7,7 +7,7 @@ function LogIn() {
   return (
     <div className="h-screen  w-full bg-pastelpink bg-clip-border overflow-x-hidden font-semibold text-sm"> {/* pricipal box */}
         <div className="w-full h-32"> </div>
-         <IconLogIn/> {/* component icon */}
+         <a title='' href='http://localhost:3000/'><IconLogIn/></a> {/* component icon */}
         <div className="bg-rose-400 h-80  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
            <form action="">
            <div className='relative top-8'>  {/* input container box */}

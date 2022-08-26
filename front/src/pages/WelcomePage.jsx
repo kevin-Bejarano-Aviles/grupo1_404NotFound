@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 
 function WelcomePage() {
   return (
-    <div className="h-screen  w-full bg-pastelpink  overflow-x-hidden">
+    <div className="h-screen  w-full bg-pastelpink  overflow-x-hidden"> 
         <div>
-           <img className='w-20 mr-auto ml-auto relative top-10 ' src={logo} alt='Logo'/>
+           <a tittle='Icon' href='http://localhost:3000/'><img className='w-20 mr-auto ml-auto relative top-10 ' src={logo} alt='Icon'/></a>
            <h1 className="mr-auto ml-auto relative left-2/4 top-8 text-slate-700 font-mono font-semibold">Buddy.</h1>
         </div>
         <div className="h-80 w-46  mt-20">

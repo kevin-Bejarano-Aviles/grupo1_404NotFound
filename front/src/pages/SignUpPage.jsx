@@ -13,7 +13,7 @@ function SignUpPage() {
 
         </div>
 
-         <IconLogIn/>
+         <a tittle='' href='http://localhost:3000/'><IconLogIn/></a>
 
             <div className="bg-pastelred h-98  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl"> {/* pricipal box */}
            
