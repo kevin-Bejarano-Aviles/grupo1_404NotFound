@@ -5,7 +5,7 @@ const postModel = require('./postModel');
 //Define relations
 userModel.hasMany(postModel,{foreignKey:'usersId'});
 postModel.belongsTo(userModel,{foreignKey:'usersId'});
-postModel.hasmany(commentModel,{foreignKey:'postId'});
+postModel.hasMany(commentModel,{foreignKey:'postId'});
 commentModel.belongsTo(postModel,{foreignKey:'postId'});
 commentModel.belongsTo(userModel,{foreignKey:'usersId'});
 userModel.hasMany(commentModel,{foreignKey:'usersId'});
