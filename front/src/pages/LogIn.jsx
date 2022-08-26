@@ -7,38 +7,41 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 function LogIn() {
   return (
-    <div className="h-screen  w-full bg-blue-300 bg-clip-border overflow-x-hidden">
-        <div className="w-full h-36">
+    <div className="h-screen  w-full bg-pastelpink bg-clip-border overflow-x-hidden"> {/* pricipal box */}
+        <div className="w-full h-36"> {/* dog image container box */}
             <div className=" flex flex-row w-72 ml-auto mr-auto justify-center relative top-10">
-        <img src={DogLeft} alt="" className="h-20 w-32 mr-11" />
-         <img src={DogRigth} alt="" className="h-20 w-32 ml-11" />
+        <img src={DogLeft} alt="" className="h-20 w-32 mr-11" />  {/* dog image */}
+         <img src={DogRigth} alt="" className="h-20 w-32 ml-11" />  {/* dog image */}
            </div>
         </div>
-         <IconLogIn/>
-        <div className="bg-rose-400 h-96  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl"> {/* pricipal box */}
-           
-           <div>
-            <h3 className='relative top-8 left-5 font-mono font-bold text-sm text-white'>Nombre:</h3>
+         <IconLogIn/> {/* component icon */}
+        <div className="bg-rose-400 h-96  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
+           <form action="">
+           <div className='relative top-8'>  {/* input container box */}
+            <label htmlFor='name' className='relative top-8 left-5 font-mono font-bold text-sm text-white'>Nombre:</label> {/* title name  */}
             <Input 
-             Tipo="usuario"
+             Type="usuario"
              Name="loguser"
+             Id="name"
             />
-            <h3 className='relative top-8 left-5 font-mono font-bold text-sm text-white'>Contraseña:</h3>
+            <label htmlFor='password' className='relative top-8 left-5 font-mono font-bold text-sm text-white'>Contraseña:</label> {/* title password  */}
             <Input 
-             Tipo="logpass"
+             Type="password"
              Name="logpass"
+             Id="password"
             />
             <div /* className="w-8 bg-red-600" */>
             <Input 
-             Tipo="submit"
-             Valor= "Inicia Sesión"
+             Type="submit"
+             value= "Inicia Sesión"
             />
             </div>
             </div>
+            </form>
         </div>
-        <div className="bg-yellow-500 flex flex-row items-center  w-72 ml-auto mr-auto">
-            <h4 className="font-mono font-bold text-sm text-white ml-2">¿No tienes una cuenta?</h4>
-            <Link to={"/sign-up"} className='w-28 h-8 bg-red-500 rounded-xl ml-4'>Registrate</Link>
+        <div className=" flex flex-row items-center  w-72 ml-auto mr-auto"> {/* question and button container box */}
+            <h4 className="font-mono font-bold text-sm text-gray-500 ml-2 w-56">¿No tienes una cuenta?</h4> {/* question */}
+            <Link to={"/sign-up"} className='w-28 h-8 bg-red-500 rounded-xl ml-4 flex items-center justify-center text-white'>Registrate</Link> {/* button */}
         </div>
     </div>
   )
