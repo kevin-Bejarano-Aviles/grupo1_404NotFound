@@ -22,7 +22,7 @@ function WelcomePage() {
          </div>
          </div>
          <div className=' w-64 ml-auto mr-auto'>
-            <h5 className='relative bottom-12'>Quieres iniciar sesión o registrarte?</h5>
+            <h5 className='relative bottom-12 text-gray-400'>Quieres iniciar sesión o registrarte?</h5>
          </div>
     </div>
   )

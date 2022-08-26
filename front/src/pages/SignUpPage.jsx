@@ -38,9 +38,9 @@ function SignUpPage() {
              </div>
         </div>
 
-        <div className="bg-pastelpink flex flex-row items-center  w-72 ml-auto mr-auto">
-            <h4 className="font-semibold text-sm text-gray-400 ml-2">Ya tienes una cuenta?</h4>
-            <Link to={"/login"} className='w-28 h-8 bg-pastelred text-pastelgray rounded-xl ml-4'>Inicia Sesión</Link>
+        <div className=" flex flex-row items-center  w-72 ml-auto mr-auto text-sm font-semibold relative bottom-5">
+            <h4 className=" text-gray-400 ml-2">Ya tienes una cuenta?</h4>
+            <Link to={"/login"} className='w-32 h-9 bg-pastelred text-pastelgray rounded-3xl ml-4 flex items-center justify-center'>Inicia Sesión</Link>
         </div>
 </div>
 
