@@ -1,19 +1,12 @@
 import React from 'react'
 import Input from '../components/Input';
 import IconLogIn from '../components/IconLogIn';
-import DogRigth from '../img/TheLittleThings-DogRigth.png';
-import DogLeft from '../img/TheLittleThings-DogLeft.png';
 import { Link } from 'react-router-dom';
 import '../App.css';
 function LogIn() {
   return (
     <div className="h-screen  w-full bg-pastelpink bg-clip-border overflow-x-hidden"> {/* pricipal box */}
-        <div className="w-full h-36"> {/* dog image container box */}
-            <div className=" flex flex-row w-72 ml-auto mr-auto justify-center relative top-10">
-        <img src={DogLeft} alt="" className="h-20 w-32 mr-11" />  {/* dog image */}
-         <img src={DogRigth} alt="" className="h-20 w-32 ml-11" />  {/* dog image */}
-           </div>
-        </div>
+        <div className="w-full h-32"> </div>
          <IconLogIn/> {/* component icon */}
         <div className="bg-rose-400 h-96  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
            <form action="">

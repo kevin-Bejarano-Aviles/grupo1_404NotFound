@@ -2,8 +2,6 @@ import React from 'react';
 import '../App.css';
 import Input from '../components/Input';
 import IconLogIn from '../components/IconLogIn';
-import DogRigth from '../img/TheLittleThings-DogRigth.png';
-import DogLeft from '../img/TheLittleThings-DogLeft.png';
 import { Link } from 'react-router-dom';
 
 function SignUpPage() {
@@ -11,13 +9,8 @@ function SignUpPage() {
     
     <div className="h-screen  w-full bg-pastelpink bg-clip-border overflow-x-hidden">
 
-        <div className="w-full h-36">
+        <div className="w-full h-24">
 
-            <div className=" flex flex-row w-72 ml-auto mr-auto justify-center relative top-10">
-
-                <img src={DogLeft} alt="" className="h-20 w-32 mr-11" />
-                <img src={DogRigth} alt="" className="h-20 w-32 ml-11" />
-            </div>
         </div>
 
          <IconLogIn/>

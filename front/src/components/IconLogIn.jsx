@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import icon from '../img/logo.png'
 
  function IconLogIn() {
   return (
-    <div className='w-32 h-14 bg-slate-600 ml-auto mr-auto relative bottom-4 z-10 rounded-2xl border-4 border-yellow-500'>
-      Icon
-    </div>
+  <div className=''>
+    <img className='w-20 mr-auto ml-auto relative bottom-11 ' src={icon} alt='Logo'/>
+    <h1 className="mr-auto ml-auto relative left-2/4 bottom-14 text-slate-700 font-mono font-semibold">Buddy.</h1>
+ </div> 
   )
 }
 export default  IconLogIn
