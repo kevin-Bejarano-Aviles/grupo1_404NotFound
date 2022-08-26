@@ -8,7 +8,7 @@ function LogIn() {
     <div className="h-screen  w-full bg-pastelpink bg-clip-border overflow-x-hidden font-semibold text-sm"> {/* pricipal box */}
         <div className="w-full h-32"> </div>
          <IconLogIn/> {/* component icon */}
-        <div className="bg-rose-400 h-96  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
+        <div className="bg-rose-400 h-80  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
            <form action="">
            <div className='relative top-8'>  {/* input container box */}
             <label htmlFor='name' className='relative top-8 left-5 text-pastelgray'>Nombre</label> {/* title name  */}
@@ -23,11 +23,8 @@ function LogIn() {
              Name="logpass"
              Id="password"
             />
-            <div /* className="w-8 bg-red-600" */>
-            <Input 
-             Type="submit"
-             value= "Inicia Sesión"
-            />
+            <div className='mr-auto ml-auto w-36 mt-12'>
+            <button className="h-9 w-32 text-pastelgray font-semibold text-sm bg-pastelyellow rounded-3xl shadow outline-none focus:outline-none focus:ring focus:ring-pastelpink pl-1 relative bottom-5 left-3 "  Type="submit" value= "Inicia Sesión">Inicia Sesión</button>
             </div>
             </div>
             </form>

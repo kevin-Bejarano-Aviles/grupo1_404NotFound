@@ -17,25 +17,28 @@ function SignUpPage() {
 
             <div className="bg-pastelred h-98  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl"> {/* pricipal box */}
            
-             <div>
-                <h3 className='relative top-8 left-5 font-semibold text-sm text-white'>Nombre completo</h3>
-                <Input Tipo="nombre" Name="name" />
+             <form action=''>
 
-                <h3 className='relative top-8 left-5 font-semibold text-sm text-white'>Email</h3>
-                <Input Tipo="email" Name="email"/>
+                <label htmlFor='name-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Nombre completo</label>
+                <Input Tipo="nombre" Name="name" Id='name-register' />
 
-                <h3 className='relative top-8 left-5 font-semibold text-sm text-white'>Usuario</h3>
-                <Input Tipo="user" Name="user" />
+                <label htmlFor='email-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Email</label>
+                <Input Tipo="email" Name="email" Id='email-register'/>
 
-                <h3 className='relative top-8 left-5 font-semibold text-sm text-white'>Contraseña</h3>
-                <Input Tipo="pass" Name="pass"/>
+                <label htmlFor='user-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Usuario</label>
+                <Input Tipo="user" Name="user" Id='user-register' />
 
-                <h3 className='relative top-8 left-5 font-semibold text-sm text-white'>Repetir contraseña</h3>
-                <Input Tipo="repita la contraseña" Name="pass2"/>
+                <label htmlFor='pass-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Contraseña</label>
+                <Input Tipo="pass" Name="pass" Id='pass-register'/>
 
-                <Input Tipo="submit" Valor= "Registrate"/>
+                <label htmlFor='pass2-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Repetir contraseña</label>
+                <Input Type="repita la contraseña" Name="pass2" Id='pass2-register'/>
 
-             </div>
+                <div className='mr-auto ml-auto w-36 mt-12'>
+                <button className="h-9 w-32 text-pastelgray font-semibold text-sm bg-pastelyellow rounded-3xl shadow outline-none focus:outline-none focus:ring focus:ring-pastelpink pl-1 relative bottom-5 left-3 " Type="submit" value= "Registrate">Registrate</button>
+                </div>
+
+             </form>
         </div>
 
         <div className=" flex flex-row items-center  w-72 ml-auto mr-auto text-sm font-semibold relative bottom-5">
