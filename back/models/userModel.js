@@ -8,7 +8,8 @@ const userModel = db.define('users', {
     user:{type:DataTypes.STRING},
     pass:{type:DataTypes.STRING},
     avatar:{type:DataTypes.STRING},
-    email:{type:DataTypes.STRING}
+    email:{type:DataTypes.STRING},
+    rol:{type:DataTypes.STRING}
 })
 //Export model
 module.exports = userModel;
