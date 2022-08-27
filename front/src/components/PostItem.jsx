@@ -60,7 +60,7 @@ function PostItem({ item }) {
           <span className='font-semibold'>{item.name} {item.surname}</span>
         </div>
         <img
-          className='p-2 rounded-full hover:bg-pastelgray'
+          className='p-2 rounded-full cursor-pointer hover:bg-pastelgray'
           src={iconThreeDots}
           alt='Icon Three Dots'
           onClick={() => setMenuState(!menuState)}
@@ -77,7 +77,14 @@ function PostItem({ item }) {
         <form>
           <textarea
             id='postbody'
-            className={`w-10/12 ml-20 overflow-hidden resize-none ${disabledState ? 'bg-white' : 'bg-pastelgray'}`}
+            className={`
+              w-10/12 ml-20 overflow-hidden resize-none
+              ${
+                disabledState
+                ? 'bg-white'
+                : 'bg-pastelgray outline-0 border-2 border-pastelyellow rounded-sm p-1'
+              }
+            `}
             rows='4'
             disabled={disabledState}
             >
@@ -86,30 +93,38 @@ function PostItem({ item }) {
           <p className={`ml-20 w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
             *La descripción no puede estar vacía.
           </p>
-          <div className={`flex gap-2 justify-end mr-4 mb-3 ${disabledState ? 'hidden' : ' '}`}>
+          <div className='relative'>
+            <label htmlFor='file' className={`${disabledState ? 'hidden' : ''} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto px-4 py-3 w-max h-max font-semibold text-white bg-pastelyellow rounded-full cursor-pointer hover:bg-hoverpastelyellow`}>
+              Cambiar Imagen
+            </label>
+            <input type='file' id='file' className='hidden' accept='image/*' />
+            <div className={`${disabledState ? '' : 'border-2 border-pastelyellow rounded-sm overflow-hidden'}`}>
+              <img className={disabledState ? '' : 'opacity-50'} src={imgPostExample} alt='Example Image' />
+            </div>
+          </div>
+          <div className={`flex gap-2 justify-end mr-4 my-3 ${disabledState ? 'hidden' : ' '}`}>
             <input
               type='button'
-              value='Modificar'
-              className='py-1 px-3 text-white font-semibold rounded-full bg-pastelblue'
+              value='Guardar'
+              className='py-2 px-3 text-white font-semibold rounded-full cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
               onClick={() => handleModifyButton()}
             />
             <input
               type='button'
               value='Cancelar'
-              className='py-1 px-3 text-white font-semibold rounded-full bg-pastelblue'
+              className='py-2 px-3 text-white font-semibold rounded-full cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
               onClick={() => handleCancelButton()}
             />
           </div>
         </form>
-        <img src={imgPostExample} alt='Example Image' />
       </section>
       <footer className='flex flex-wrap'>
-        <button className='flex justify-center gap-2 basis-2/4 py-5'>
+        <button className='flex justify-center gap-2 basis-2/4 py-5 cursor-pointer hover:bg-pastelgray'>
           <img src={likeIcon} alt='Like' />
           <span>Like</span>
         </button>
         <button
-          className='flex justify-center gap-2 basis-2/4 py-5'
+          className='flex justify-center gap-2 basis-2/4 py-5 cursor-pointer hover:bg-pastelgray'
           onClick={() => setCommentState(!commentState)}
         >
           <img src={commentIcon} alt='Comment' />
@@ -122,7 +137,7 @@ function PostItem({ item }) {
             name=''
             rows='3'
             placeholder='Agregar un comentario...'
-            className='w-full py-3 px-5 bg-pastelgray rounded-xl overflow-hidden resize-none'
+            className='w-full py-3 px-5 bg-pastelgray outline-0 rounded-xl overflow-hidden resize-none'
           >
           </textarea>
             <input
