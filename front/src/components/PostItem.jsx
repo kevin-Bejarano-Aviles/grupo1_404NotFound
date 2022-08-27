@@ -14,7 +14,7 @@ function PostItem({ post }) {
   const [errorState, setErrorState] = useState(false);
 
   const handleModifyButton = () => {
-    if (document.getElementById('post-text').value === '') {
+    if (document.getElementById(`post-text-${post.id}`).value === '') {
       setErrorState(true);
     } else {
       setErrorState(false);
@@ -23,7 +23,7 @@ function PostItem({ post }) {
   };
 
   const handleCancelButton = () => {
-    document.getElementById('post-text').value = post.text;
+    document.getElementById(`post-text-${post.id}`).value = post.text;
     setErrorState(false);
     setDisabledState(true);
   };
@@ -42,6 +42,7 @@ function PostItem({ post }) {
           onClick={() => setMenuState(!menuState)}
         />
         <PostItemMenu
+          id={post.id}
           classList={menuState ? ' ' : 'hidden'}
           disabledState={disabledState}
           setDisabledState={setDisabledState}
@@ -50,7 +51,7 @@ function PostItem({ post }) {
       <section>
         <form>
           <textarea
-            id='post-text'
+            id={`post-text-${post.id}`}
             className={`
               w-10/12 ml-20 overflow-hidden resize-none
               ${

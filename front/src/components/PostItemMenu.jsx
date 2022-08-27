@@ -2,13 +2,13 @@ import { useState } from 'react';
 import editIcon from '../img/icon-edit.svg';
 import trashIcon from '../img/icon-trash.svg';
 
-function PostItemMenu({ classList, disabledState, setDisabledState }) {
+function PostItemMenu({ id, classList, disabledState, setDisabledState }) {
 
   const [warningState, setWarningState] = useState(false);
 
   const editPost = () => {
     setDisabledState(false);
-    document.getElementById('post-text').focus();
+    document.getElementById(`post-text-${id}`).focus();
   };
 
   const showWarning = () => {
