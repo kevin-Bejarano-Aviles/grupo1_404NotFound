@@ -30,18 +30,26 @@ function PostItem({ item }) {
   const [commentState, setCommentState] = useState(false);
   const [menuState, setMenuState] = useState(false);
   const [disabledState, setDisabledState] = useState(true);
-
-  const changeCommentState = () => {
-    commentState ? setCommentState(false) : setCommentState(true);
-  };
+  const [errorState, setErrorState] = useState(false);
 
   const sendComment = e => {
     e.preventDefault();
     console.log(e.target.previousElementSibling.value);
   };
 
-  const showOptionsWindow = () => {
-    menuState ? setMenuState(false) : setMenuState(true);
+  const handleModifyButton = () => {
+    if (document.getElementById('postbody').value === '') {
+      setErrorState(true);
+    } else {
+      setErrorState(false);
+      setDisabledState(true);
+    }
+  };
+
+  const handleCancelButton = () => {
+    setErrorState(false);
+    setDisabledState(true);
+    document.getElementById('postbody').value = item.post;
   };
 
   return (
@@ -55,7 +63,7 @@ function PostItem({ item }) {
           className='p-2 rounded-full hover:bg-pastelgray'
           src={iconThreeDots}
           alt='Icon Three Dots'
-          onClick={() => showOptionsWindow()}
+          onClick={() => setMenuState(!menuState)}
         />
         {/** Start of hidden menu */}
         <PostItemOptions
@@ -75,20 +83,22 @@ function PostItem({ item }) {
             >
               {item.post}
           </textarea>
-          <span className='block ml-20 w-10/12 text-red-500 bg-red-100'>Error message</span>
+          <p className={`ml-20 w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
+            *La descripción no puede estar vacía.
+          </p>
           <div className={`flex gap-2 justify-end mr-4 mb-3 ${disabledState ? 'hidden' : ' '}`}>
-            <button
+            <input
+              type='button'
+              value='Modificar'
               className='py-1 px-3 text-white font-semibold rounded-full bg-pastelblue'
-              onClick={e => setDisabledState(true)}
-              >
-                Modificar
-            </button>
-            <button
+              onClick={() => handleModifyButton()}
+            />
+            <input
+              type='button'
+              value='Cancelar'
               className='py-1 px-3 text-white font-semibold rounded-full bg-pastelblue'
-              onClick={e => setDisabledState(true)}
-              >
-                Cancelar
-            </button>
+              onClick={() => handleCancelButton()}
+            />
           </div>
         </form>
         <img src={imgPostExample} alt='Example Image' />
@@ -98,7 +108,10 @@ function PostItem({ item }) {
           <img src={likeIcon} alt='Like' />
           <span>Like</span>
         </button>
-        <button className='flex justify-center gap-2 basis-2/4 py-5' onClick={() => changeCommentState()}>
+        <button
+          className='flex justify-center gap-2 basis-2/4 py-5'
+          onClick={() => setCommentState(!commentState)}
+        >
           <img src={commentIcon} alt='Comment' />
           <span>Comment</span>
         </button>
@@ -112,7 +125,12 @@ function PostItem({ item }) {
             className='w-full py-3 px-5 bg-pastelgray rounded-xl overflow-hidden resize-none'
           >
           </textarea>
-            <input className='self-start py-2 px-2 text-white font-semibold bg-pastelred rounded-full' type='image' src={messageIcon} onClick={e => sendComment(e)}/>
+            <input
+              type='image'
+              className='self-start py-2 px-2 text-white font-semibold bg-pastelred rounded-full'
+              src={messageIcon}
+              onClick={e => sendComment(e)}
+            />
           </form>
           <ul>
             {

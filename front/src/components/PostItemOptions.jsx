@@ -4,7 +4,7 @@ import trashIcon from '../img/icon-trash.svg';
 function PostItemOptions({ classList, disabledState, setDisabledState }) {
 
   const editPost = () => {
-    setDisabledState();
+    setDisabledState(false);
     document.getElementById('postbody').focus();
   };
 
