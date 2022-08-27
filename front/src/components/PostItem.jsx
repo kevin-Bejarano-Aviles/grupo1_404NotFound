@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import CommentList from './CommentList';
 import PostItemMenu from './PostItemMenu';
-import imgAvatar from '../img/avatar-default.png';
-import imgPostExample from '../img/post-example.png';
 import likeIcon from '../img/icon-like.svg';
 import commentIcon from '../img/icon-comment.svg';
 import iconThreeDots from '../img/icon-three-dots.svg';
@@ -34,7 +32,7 @@ function PostItem({ post }) {
     <article className='bg-white rounded-2xl shadow-xl overflow-hidden'>
       <header className='relative flex justify-between items-center px-6 pt-4'>
         <div className='flex items-center gap-4'>
-          <img className='w-10 rounded-full' src={imgAvatar} alt='Avatar' />
+          <img className='w-10 rounded-full' src='https://www.nbcconstruction.co.uk/wp-content/uploads/2017/12/avatar-default.jpg' alt='Avatar' />
           <span className='font-semibold'>{post.name} {post.surname}</span>
         </div>
         <img
@@ -75,7 +73,7 @@ function PostItem({ post }) {
             </label>
             <input type='file' id='file' className='hidden' accept='image/*' />
             <div className={`${disabledState ? '' : 'border-2 border-pastelyellow rounded-sm overflow-hidden'}`}>
-              <img className={disabledState ? '' : 'opacity-50'} src={imgPostExample} alt='Example Image' />
+              <img className={disabledState ? '' : 'opacity-50'} src={post.urlImage} alt='Example Image' />
             </div>
           </div>
           <div className={`flex gap-2 justify-end mr-4 my-3 ${disabledState ? 'hidden' : ' '}`}>

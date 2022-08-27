@@ -1,6 +1,6 @@
 import Comment from './Comment';
 import messageIcon from '../img/icon-message.svg';
-import commentExamples from '../json/postExamples.json';
+import commentExamples from '../json/commentExamples.json';
 
 function CommentList({ classList }) {
 

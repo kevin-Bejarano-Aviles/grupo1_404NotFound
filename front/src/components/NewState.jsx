@@ -1,4 +1,3 @@
-import avatar from '../img/avatar-default.png';
 import iconImage from '../img/icon-add-image.svg';
 
 function NewState() {
@@ -6,7 +5,7 @@ function NewState() {
     <article className='flex flex-col px-6 bg-white rounded-2xl shadow-xl'>
       <form>
         <div className='flex items-center gap-4 py-5 border-b-2'>
-          <img className='w-10 rounded-full self-start' src={avatar} alt='Avatar' />
+          <img className='w-10 rounded-full self-start' src='https://www.nbcconstruction.co.uk/wp-content/uploads/2017/12/avatar-default.jpg' alt='Avatar' />
           <textarea
             name=''
             rows='4'

@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "urlImage": "../img/avatar-default.png",
+    "urlImage": "https://www.nbcconstruction.co.uk/wp-content/uploads/2017/12/avatar-default.jpg",
     "name": "Nombre",
     "surname": "Apellido",
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ipsa!"
   },
   {
     "id": 2,
-    "urlImage": "../img/avatar-default.png",
+    "urlImage": "https://www.nbcconstruction.co.uk/wp-content/uploads/2017/12/avatar-default.jpg",
     "name": "Nombre",
     "surname": "Apellido",
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, ipsa!"
