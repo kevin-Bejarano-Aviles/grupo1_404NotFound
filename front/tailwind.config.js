@@ -14,6 +14,7 @@ module.exports = {
         pastelblack: '#0f1419',
         hoverpastelyellow: '#fcc358',
         hoverpastelblue: '#262b38',
+        hoverpastelred: '#fc566f',
       },
     },
   },

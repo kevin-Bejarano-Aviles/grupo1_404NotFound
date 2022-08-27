@@ -47,9 +47,9 @@ function PostItem({ item }) {
   };
 
   const handleCancelButton = () => {
+    document.getElementById('postbody').value = item.post;
     setErrorState(false);
     setDisabledState(true);
-    document.getElementById('postbody').value = item.post;
   };
 
   return (
