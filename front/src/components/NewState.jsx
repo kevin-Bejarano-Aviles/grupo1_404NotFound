@@ -20,7 +20,7 @@ function NewState() {
             Agregar mascota
           </label>
           <input type='file' id='file' className='hidden' accept='image/*' />
-          <button className='py-2 px-7 text-white font-bold bg-pastelred rounded-full hover:bg-hoverpastelred'>Publicar</button>
+          <button className='py-2 px-7 text-white font-bold bg-pastelred rounded-md hover:bg-hoverpastelred'>Publicar</button>
         </div>
       </form>
     </article>

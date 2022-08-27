@@ -68,7 +68,7 @@ function PostItem({ post }) {
             *La descripción no puede estar vacía.
           </p>
           <div className='relative'>
-            <label htmlFor='file' className={`${disabledState ? 'hidden' : ''} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto px-4 py-3 w-max h-max font-semibold text-white bg-pastelyellow rounded-full cursor-pointer hover:bg-hoverpastelyellow`}>
+            <label htmlFor='file' className={`${disabledState ? 'hidden' : ''} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto px-4 py-3 w-max h-max font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow`}>
               Cambiar Imagen
             </label>
             <input type='file' id='file' className='hidden' accept='image/*' />
@@ -80,13 +80,13 @@ function PostItem({ post }) {
             <input
               type='button'
               value='Guardar'
-              className='py-2 px-3 text-white font-semibold rounded-full cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
+              className='py-2 px-3 text-white font-semibold rounded-md cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
               onClick={() => handleModifyButton()}
             />
             <input
               type='button'
               value='Cancelar'
-              className='py-2 px-3 text-white font-semibold rounded-full cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
+              className='py-2 px-3 text-white font-semibold rounded-md cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
               onClick={() => handleCancelButton()}
             />
           </div>
