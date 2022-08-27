@@ -69,15 +69,20 @@ function PostItem({ post }) {
             *La descripción no puede estar vacía.
           </p>
           <div className='relative'>
-            <label htmlFor='file' className={`${disabledState ? 'hidden' : ''} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto px-4 py-3 w-max h-max font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow`}>
-              Cambiar Imagen
-            </label>
+            <div className={`${disabledState ? 'hidden' : ''} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto flex flex-col gap-3 w-max h-max`}>
+              <label htmlFor='file' className='px-4 py-3 font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow'>
+                Cambiar Imagen
+              </label>
+              <button type='button' className='px-4 py-3 font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow'>
+                Eliminar Imagen
+              </button>
+            </div>
             <input type='file' id='file' className='hidden' accept='image/*' />
             <div className={`${disabledState ? '' : 'border-2 border-pastelyellow rounded-sm overflow-hidden'}`}>
               <img className={disabledState ? '' : 'opacity-50'} src={post.urlImage} alt='Example Image' />
             </div>
           </div>
-          <div className={`flex gap-2 justify-end mr-4 my-3 ${disabledState ? 'hidden' : ' '}`}>
+          <div className={`${disabledState ? 'hidden' : ''} flex gap-2 justify-end pr-4 py-3 border-b-2`}>
             <input
               type='button'
               value='Guardar'
