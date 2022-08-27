@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         pastelyellow: '#fdcb6e',
+        hoverpastelyellow: '#fcc358',
         pastelpink: '#f4e3e3',
         pastelgray: '#f4f4f4',
         pastelblue: '#2f3542',
