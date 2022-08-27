@@ -1,11 +1,12 @@
 import editIcon from '../img/icon-edit.svg';
 import trashIcon from '../img/icon-trash.svg';
+import showWarning from './showWarning';
 
-function PostItemOptions({ classList, disabledState, setDisabledState }) {
+function PostItemMenu({ classList, disabledState, setDisabledState }) {
 
   const editPost = () => {
     setDisabledState(false);
-    document.getElementById('postbody').focus();
+    document.getElementById('post-text').focus();
   };
 
   return (
@@ -24,6 +25,7 @@ function PostItemOptions({ classList, disabledState, setDisabledState }) {
             className='p-2 rounded-full cursor-pointer hover:bg-pastelgray'
             src={trashIcon}
             alt='Eliminar Publicación'
+            onClick={<showWarning />}
             />
         </li>
       </ul>
@@ -31,4 +33,4 @@ function PostItemOptions({ classList, disabledState, setDisabledState }) {
   )
 }
 
-export default PostItemOptions;
+export default PostItemMenu;
