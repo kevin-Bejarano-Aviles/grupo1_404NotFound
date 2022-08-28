@@ -3,17 +3,13 @@ import editIcon from '../img/icon-edit.svg';
 import trashIcon from '../img/icon-trash.svg';
 
 function Comment({ comment }) {
-
   const [isCommentOn, setIsCommentOn] = useState(false);
   const [errorState, setErrorState] = useState(false);
 
-  const handleModifyButton = () => {
-    if (document.getElementById(`comment-text-${comment.id}`).value === '') {
-      setErrorState(true);
-    } else {
-      setErrorState(false);
-      setIsCommentOn(false);
-    }
+  const handleSaveButton = e => {
+    e.preventDefault();
+    const commentElement = document.getElementById(`comment-text-${comment.id}`);
+    commentElement.value ? setErrorState(false) : setErrorState(true);
   };
 
   const handleCancelButton = () => {
@@ -61,14 +57,14 @@ function Comment({ comment }) {
           {comment.text}
         </textarea>
         <p className={`ml-10 w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
-          *La descripción no puede estar vacía.
+          * La descripción no puede estar vacía.
         </p>
         <div className={`flex gap-2 justify-end mr-4 my-3 ${isCommentOn ? '' : 'hidden'}`}>
           <input
-            type='button'
+            type='submit'
             value='Guardar'
             className='py-2 px-3 text-white font-semibold rounded-md cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
-            onClick={() => handleModifyButton()}
+            onClick={e => handleSaveButton(e)}
           />
           <input
             type='button'
