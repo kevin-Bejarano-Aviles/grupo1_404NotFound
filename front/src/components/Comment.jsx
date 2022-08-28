@@ -3,19 +3,16 @@ import editIcon from '../img/icon-edit.svg';
 import trashIcon from '../img/icon-trash.svg';
 
 function Comment({ comment }) {
-  const [isCommentOn, setIsCommentOn] = useState(false);
-  const [errorState, setErrorState] = useState(false);
+  const [canEditComment, setCanEditComment] = useState(false);
+  const [canSaveComment, setCanSaveComment] = useState(true);
 
-  const handleSaveButton = e => {
-    e.preventDefault();
-    const commentElement = document.getElementById(`comment-text-${comment.id}`);
-    commentElement.value ? setErrorState(false) : setErrorState(true);
+  const handleCommentText = e => {
+    e.target.value ? setCanSaveComment(true) : setCanSaveComment(false);
   };
 
   const handleCancelButton = () => {
     document.getElementById(`comment-text-${comment.id}`).value = comment.text;
-    setErrorState(false);
-    setIsCommentOn(false);
+    setCanEditComment(false);
   };
 
   return (
@@ -26,18 +23,16 @@ function Comment({ comment }) {
           <p className='font-semibold'>{comment.name} {comment.surname}</p>
         </div>
         <div className='flex gap-1'>
-          <img
-            className='p-1 cursor-pointer rounded-full hover:bg-white'
-            src={editIcon}
-            alt='Editar'
-            onClick={() => setIsCommentOn(true)}
-          />
-          <img
-            className='p-1 cursor-pointer rounded-full hover:bg-white'
-            src={trashIcon}
-            alt='Eliminar'
-            onClick={() => {}}
-          />
+          <button
+            className={`${canEditComment ? 'bg-white' : 'hover:bg-white cursor-pointer'} p-1 rounded-full`}
+            disabled={canEditComment}
+            onClick={() => setCanEditComment(true)}
+            >
+            <img src={editIcon} alt='Editar' />
+          </button>
+          <button className='p-1 cursor-pointer rounded-full hover:bg-white'>
+            <img src={trashIcon} alt='Eliminar' />
+          </button>
         </div>
       </div>
       <form>
@@ -46,25 +41,24 @@ function Comment({ comment }) {
           className={`
             w-10/12 ml-9 overflow-hidden resize-none
             ${
-              isCommentOn
+              canEditComment
               ? 'bg-white outline-0 border-2 border-pastelyellow rounded-sm p-1'
               : 'bg-pastelgray'
             }
           `}
           rows='2'
-          disabled={!isCommentOn}
+          disabled={!canEditComment}
+          onChange={e => handleCommentText(e)}
         >
           {comment.text}
         </textarea>
-        <p className={`ml-10 w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
-          * La descripción no puede estar vacía.
-        </p>
-        <div className={`flex gap-2 justify-end mr-4 my-3 ${isCommentOn ? '' : 'hidden'}`}>
+        <div className={`flex gap-2 justify-end mr-4 my-3 ${canEditComment ? '' : 'hidden'}`}>
           <input
             type='submit'
             value='Guardar'
-            className='py-2 px-3 text-white font-semibold rounded-md cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
-            onClick={e => handleSaveButton(e)}
+            className={`${canSaveComment ? 'bg-pastelblue hover:bg-hoverpastelblue cursor-pointer' : 'bg-gray-300'} py-2 px-3 text-white font-semibold rounded-md`}
+            disabled={!canSaveComment}
+            onClick={e => e.preventDefault()}
           />
           <input
             type='button'

@@ -10,19 +10,16 @@ function PostItem({ post }) {
 
   const [commentState, setCommentState] = useState(false);
   const [menuState, setMenuState] = useState(false);
-  const [disabledState, setDisabledState] = useState(true);
-  const [errorState, setErrorState] = useState(false);
-
-  const handleSaveButton = e => {
-    e.preventDefault();
-    const postTextInput = document.getElementById(`post-text-${post.id}`);
-    postTextInput.value ? setErrorState(false) : setErrorState(true);
-  };
+  const [canEditPost, setCanEditPost] = useState(false);
+  const [saveButtonState, setSaveButtonState] = useState(true);
 
   const handleCancelButton = () => {
     document.getElementById(`post-text-${post.id}`).value = post.text;
-    setErrorState(false);
-    setDisabledState(true);
+    setCanEditPost(false);
+  };
+
+  const hadlePostTextInput = e => {
+    e.target.value ? setSaveButtonState(true) : setSaveButtonState(false);
   };
 
   return (
@@ -39,10 +36,9 @@ function PostItem({ post }) {
           onClick={() => setMenuState(!menuState)}
         />
         <PostItemMenu
-          id={post.id}
-          classList={menuState ? ' ' : 'hidden'}
-          disabledState={disabledState}
-          setDisabledState={setDisabledState}
+          hiddenClass={menuState ? ' ' : 'hidden'}
+          canEditPost={canEditPost}
+          setCanEditPost={setCanEditPost}
         />
       </header>
       <section>
@@ -52,21 +48,19 @@ function PostItem({ post }) {
             className={`
               w-10/12 ml-20 overflow-hidden resize-none
               ${
-                disabledState
-                ? 'bg-white'
-                : 'bg-pastelgray outline-0 border-2 border-pastelyellow rounded-sm p-1'
+                canEditPost
+                ? 'bg-pastelgray outline-0 border-2 border-pastelyellow rounded-sm p-1'
+                : 'bg-white'
               }
             `}
             rows='4'
-            disabled={disabledState}
+            disabled={!canEditPost}
+            onChange={e => hadlePostTextInput(e)}
             >
               {post.text}
           </textarea>
-          <p className={`ml-20 mb-2 w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
-            * La descripción no puede estar vacía.
-          </p>
           <div className='relative'>
-            <div className={`${disabledState ? 'hidden' : ''} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto flex flex-col gap-3 w-max h-max`}>
+            <div className={`${canEditPost ? '' : 'hidden'} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto flex flex-col gap-3 w-max h-max`}>
               <label htmlFor='file' className='px-4 py-3 font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow'>
                 Cambiar Imagen
               </label>
@@ -75,16 +69,17 @@ function PostItem({ post }) {
               </button>
             </div>
             <input type='file' id='file' className='hidden' accept='image/*' />
-            <div className={`${disabledState ? '' : 'border-2 border-pastelyellow rounded-sm overflow-hidden'}`}>
-              <img className={disabledState ? '' : 'opacity-50'} src={post.urlImage} alt='Example Image' />
+            <div className={`${canEditPost ? 'border-2 border-pastelyellow rounded-sm overflow-hidden' : ''}`}>
+              <img className={canEditPost ? 'opacity-50' : ''} src={post.urlImage} alt='Example Image' />
             </div>
           </div>
-          <div className={`${disabledState ? 'hidden' : ''} flex gap-2 justify-end pr-4 py-3 border-b-2`}>
+          <div className={`${canEditPost ? '' : 'hidden'} flex gap-2 justify-end pr-4 py-3 border-b-2`}>
             <input
               type='submit'
               value='Guardar'
-              className='py-2 px-3 text-white font-semibold rounded-md cursor-pointer bg-pastelblue hover:bg-hoverpastelblue'
-              onClick={e => handleSaveButton(e)}
+              className={`${saveButtonState ? 'bg-pastelblue hover:bg-hoverpastelblue cursor-pointer' : 'bg-gray-300'} py-2 px-3 text-white font-semibold rounded-md`}
+              disabled={!saveButtonState}
+              onClick={e => e.preventDefault()}
             />
             <input
               type='button'
