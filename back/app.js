@@ -16,6 +16,7 @@ app.use(express.static('public'))
 /* path.join(__dirname,'..','front','src','img') */
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({extended:true}));
+app.use(cors());
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({ 
