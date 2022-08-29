@@ -1,5 +1,4 @@
-import React from 'react'
-import Input from '../components/Input';
+import React from 'react';
 import IconLogIn from '../components/IconLogIn';
 import { Link } from 'react-router-dom';
 import '../App.css';
@@ -10,15 +9,17 @@ function LogIn() {
          <a title='' href='http://localhost:3000/'><IconLogIn/></a> {/* component icon */}
         <div className="bg-rose-400 h-80  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
            <form action="">
-           <div className='relative top-8'>  {/* input container box */}
-            <label htmlFor='name' className='relative top-8 left-5 text-pastelgray'>Nombre</label> {/* title name  */}
-            <Input 
+           <div className='relative top-10 mr-auto ml-auto  w-64 mt-10'>  {/* input container box */}
+            <label htmlFor='name' className='relative top left-5 text-pastelgray'>Nombre</label> {/* title name  */}
+            <input
+             className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5 "
              Type="usuario"
              Name="loguser"
              Id="name"
             />
-            <label htmlFor='password' className='relative top-8 left-5 text-pastelgray'>Contraseña</label> {/* title password  */}
-            <Input 
+            <label htmlFor='password' className='relative top left-5 text-pastelgray'>Contraseña</label> {/* title password  */}
+            <input 
+             className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5 "
              Type="password"
              Name="logpass"
              Id="password"

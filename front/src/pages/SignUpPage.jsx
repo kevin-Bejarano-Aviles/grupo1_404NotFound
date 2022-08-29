@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
-//import input from '../components/input';
 import IconLogIn from '../components/IconLogIn';
 import { Link } from 'react-router-dom';
 
@@ -44,12 +43,13 @@ function SignUpPage() {
 
         <a tittle='' href='http://localhost:3000/'><IconLogIn/></a>
 
-            <div className="bg-pastelred h-98  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl"> {/* pricipal box */}
+            <div className="bg-pastelred h-98 w-72 mr-auto ml-auto relative bottom-10 rounded-3xl"> {/* pricipal box */}
 
-              <form action='' onSubmit={createUser}>
+              <form action='' onSubmit={createUser} className='mr-auto ml-auto  w-64 mt-10'>
 
-                <label htmlFor='name-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Nombre completo</label>
+                <label htmlFor='name-register' className='relative top-1 left-3 font-semibold text-sm text-white'>Nombre completo</label>
                 <input
+                className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5 "
                   type="nombre"
                   id='name-register'
                   name="name"
@@ -57,8 +57,9 @@ function SignUpPage() {
                   onChange={e => setName(e.target.value)}
                 />
 
-                <label htmlFor='email-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Email</label>
+                <label htmlFor='email-register' className='relative top-1 left-3 font-semibold text-sm text-white'>Email</label>
                 <input
+                className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm border-1 shadow outline-none pl-5 "
                   type="email"
                   Id='email-register'
                   name="email"
@@ -66,8 +67,9 @@ function SignUpPage() {
                   onChange={e => setEmail(e.target.value)}
                 />
 
-                <label htmlFor='user-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Usuario</label>
+                <label htmlFor='user-register' className='relative top-1 left-3 font-semibold text-sm text-white'>Usuario</label>
                 <input
+                className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm border-1 shadow outline-none pl-5 "
                   type="user"
                   id='user-register'
                   name="user"
@@ -75,8 +77,9 @@ function SignUpPage() {
                   onChange={e => setUser(e.target.value)}
                 />
 
-                <label htmlFor='pass-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Contraseña</label>
+                <label htmlFor='pass-register' className='relative top-1 left-3 font-semibold text-sm text-white'>Contraseña</label>
                 <input
+                className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm border-1 shadow outline-none pl-5 "
                   type="password"
                   id='pass-register'
                   name="pass"
@@ -84,8 +87,9 @@ function SignUpPage() {
                   onChange={e => setPass(e.target.value)}
                 />
 
-                <label htmlFor='pass2-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Repetir contraseña</label>
+                <label htmlFor='pass2-register' className='relative top-1 left-3 font-semibold text-sm text-white'>Repetir contraseña</label>
                 <input
+                className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm border-1 shadow outline-none pl-5 "
                   type="password"
                   name="pass2"
                   id='pass2-register'
