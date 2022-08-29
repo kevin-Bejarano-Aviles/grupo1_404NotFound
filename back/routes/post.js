@@ -9,10 +9,11 @@ const postValidator = require('../validations/postValidations');
 //Require multer middleware
 const upPostImg = require('../middlewares/upPostImg');
 
+const userCheck = require('../middlewares/userCheck');
 //http methods
-router.get('/', getAllPosts);
-router.get('/:id', getPost);
-router.post('/',upPostImg.any(),postValidator,createPost);
+router.get('/',userCheck, getAllPosts);
+router.get('/:id',userCheck, getPost);
+router.post('/',userCheck,upPostImg.any(),postValidator,createPost);
 router.put('/:id',upPostImg.any(),postValidator,updatePost);
 router.delete('/:id', deletePost)
 

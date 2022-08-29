@@ -1,7 +1,10 @@
 //Export user session middleware
 module.exports = (req,res,next) => {
     if (!req.session.userLog) {
-        return res.redirect("/users/login")
+        res.redirect("/users");
+    }else{
+       /*  res.locals.userLog = req.session.userLog; */
+        next();
     }
-    next()
+    
 }

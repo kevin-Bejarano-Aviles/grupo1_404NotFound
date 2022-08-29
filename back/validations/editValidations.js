@@ -26,7 +26,7 @@ module.exports = [
             
         })
     }) */
-    body('newPass2')
+    /* body('newPass2')
     .custom((value,{req}) => {
         if(value != req.body.newPass){
             return false
@@ -34,7 +34,7 @@ module.exports = [
         return true
     })
     .withMessage("Las constraseñas no coinciden"),
-    check('newPass').isLength({min:8, max:12}).withMessage('La contraseña debe tener minimo 8 caracteres'),
+    check('newPass').isLength({min:8, max:12}).withMessage('La contraseña debe tener minimo 8 caracteres'), */
     /* body('newPass')
     .custom((value,{req})=>{ */
         /* let pass = req.body.newPass */
