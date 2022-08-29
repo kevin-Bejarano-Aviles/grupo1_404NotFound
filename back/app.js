@@ -24,11 +24,11 @@ app.use(session({
     resave: false,
     saveUninitialized: true
   }));
-/* const corsOptions={
+const corsOptions={
   optionsSuccessStatus: 200,
   credentials: true,
 }
-app.use(cors(corsOptions)) */
+app.use(cors(corsOptions))
 
 app.use('/posts', postRoute);
 app.use('/users', users);
