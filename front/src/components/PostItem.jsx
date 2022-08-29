@@ -51,6 +51,7 @@ function PostItem({ post }) {
         <form>
           <textarea
             id={`post-text-${post.id}`}
+            name='content'
             className={`
               w-10/12 ml-20 overflow-hidden resize-none
               ${
@@ -70,7 +71,11 @@ function PostItem({ post }) {
           </p>
           <div className='relative'>
             <div className={`${canEditPost ? '' : 'hidden'} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto flex flex-col gap-3 w-max h-max`}>
-              <label htmlFor='file' className='px-4 py-3 font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow'>
+              <label
+                htmlFor='file'
+                className='px-4 py-3 font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow'
+                name='postImg'
+                >
                 Cambiar Imagen
               </label>
               <button type='button' className='px-4 py-3 font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow'>

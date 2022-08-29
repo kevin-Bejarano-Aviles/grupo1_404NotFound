@@ -23,7 +23,7 @@ function CommentList({ classList, id }) {
         <div className='flex gap-3'>
           <textarea
             id={`new-comment-input-${id}`}
-            name=''
+            name='content'
             rows='3'
             placeholder='Agregar un comentario...'
             className='w-full py-3 px-5 bg-pastelgray outline-0 rounded-xl overflow-hidden resize-none'

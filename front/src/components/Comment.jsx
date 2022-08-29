@@ -45,6 +45,7 @@ function Comment({ comment }) {
       <form>
         <textarea
           id={`comment-text-${comment.id}`}
+          name='content'
           className={`
             w-10/12 ml-9 overflow-hidden resize-none
             ${

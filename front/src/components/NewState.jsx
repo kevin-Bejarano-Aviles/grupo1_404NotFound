@@ -22,7 +22,7 @@ function NewState() {
           <img className='w-10 rounded-full self-start' src='https://www.nbcconstruction.co.uk/wp-content/uploads/2017/12/avatar-default.jpg' alt='Avatar' />
           <textarea
             id='new-state-input'
-            name=''
+            name='content'
             rows='4'
             placeholder='¿Qué está pasando?'
             className='w-full py-3 px-5 bg-pastelgray rounded-xl overflow-hidden resize-none outline-0'
@@ -38,7 +38,7 @@ function NewState() {
             <img src={iconImage} alt='Add image' />
             Agregar mascota
           </label>
-          <input type='file' id='file' className='hidden' accept='image/*' />
+          <input type='file' id='file' name= 'postImg' className='hidden' accept='image/*' />
           <button
             type='submit'
             className={`${cansendPost ? 'bg-pastelred hover:bg-hoverpastelred' : 'bg-gray-300'} py-2 px-7 text-white font-bold rounded-md`}
