@@ -1,41 +1,106 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../App.css';
 import Input from '../components/Input';
 import IconLogIn from '../components/IconLogIn';
 import { Link } from 'react-router-dom';
 
 function SignUpPage() {
+  
+  const URI = 'http://localhost:8000/register/';
+  const navigate = useNavigate();
+
+  const [name, setName] = useState([]);
+  const [email, setEmail] = useState([]);
+  const [user, setUser] = useState([]);
+  const [pass, setPass] = useState([]);
+  const [pass2, setPass2] = useState([]);
+
+  useEffect(() => {
+    createUser();
+  },[]);
+
+  const createUser = async () => {
+    e.preventDefault();
+    await axios.post(URI, {
+      name: name,
+      email: email,
+      user: user,
+      pass: pass,
+      pass2: pass2
+    });
+    navigate('/home');
+  };
+
   return (
-    
+
     <div className="h-screen  w-full bg-pastelpink bg-clip-border overflow-x-hidden">
 
         <div className="w-full h-24">
 
         </div>
 
-         <a tittle='' href='http://localhost:3000/'><IconLogIn/></a>
+        <a tittle='' href='http://localhost:3000/'><IconLogIn/></a>
 
             <div className="bg-pastelred h-98  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl"> {/* pricipal box */}
-           
-             <form action=''>
+
+              <form action='' onSubmit={createUser}>
 
                 <label htmlFor='name-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Nombre completo</label>
-                <Input Tipo="nombre" Name="name" Id='name-register' />
+                <Input
+                  Type="nombre"
+                  Id='name-register'
+                  Name="name"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                />
 
                 <label htmlFor='email-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Email</label>
-                <Input Tipo="email" Name="email" Id='email-register'/>
+                <Input
+                  Type="email"
+                  Id='email-register'
+                  Name="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
 
                 <label htmlFor='user-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Usuario</label>
-                <Input Tipo="user" Name="user" Id='user-register' />
+                <Input
+                  Type="user"
+                  Id='user-register'
+                  Name="user"
+                  value={user}
+                  onChange={e => setUser(e.target.value)}
+                />
 
                 <label htmlFor='pass-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Contraseña</label>
-                <Input Tipo="pass" Name="pass" Id='pass-register'/>
+                <Input
+                  Type="pass"
+                  Id='pass-register'
+                  Name="pass"
+                  value={pass}
+                  onChange={e => setPass(e.target.value)}
+                />
 
                 <label htmlFor='pass2-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Repetir contraseña</label>
-                <Input Type="repita la contraseña" Name="pass2" Id='pass2-register'/>
+                <Input
+                  Type="repita la contraseña"
+                  Name="pass2"
+                  Id='pass2-register'
+                  value={pass2}
+                  onChange={e => setPass2(e.target.value)}
+                />
 
                 <div className='mr-auto ml-auto w-36 mt-12'>
-                <button className="h-9 w-32 text-pastelgray font-semibold text-sm bg-pastelyellow rounded-3xl shadow outline-none focus:outline-none focus:ring focus:ring-pastelpink pl-1 relative bottom-5 left-3 " Type="submit" value= "Registrate">Registrate</button>
+                <button
+                  className="h-9 w-32 text-pastelgray font-semibold text-sm bg-pastelyellow rounded-3xl shadow outline-none focus:outline-none focus:ring focus:ring-pastelpink pl-1 relative bottom-5 left-3 "
+                  type="submit"
+                  value= "Registrate"
+                  >
+                    Registrate
+                  </button>
                 </div>
 
              </form>
