@@ -20,7 +20,7 @@ exports.createUser = async (req, res) => {
                 pass: pass,
                 avatar: avatar,
                 email: email,
-                rol: 'admin'
+                rol: 'user'
             });
             res.json('Registro creado correctamente');
         } catch (error) {
