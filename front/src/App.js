@@ -5,7 +5,7 @@ import LoginPage from './pages/LogIn';
 import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
-
+import UserListProfile from './pages/UserListProfile'
 function App() {
   return (
     <div className='text-pastelblack'>
@@ -15,6 +15,7 @@ function App() {
         <Route path={'/sign-up'} element={<SignUpPage />} />
         <Route path={'/home'} element={<HomePage />} />
         <Route path={'/profile'} element={<ProfilePage />} />
+        <Route path={'/user-list-profile'} element={<UserListProfile/>} />
       </Routes>
     </div>
   );
