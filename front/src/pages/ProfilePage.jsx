@@ -32,19 +32,19 @@ function ProfilePage(){
     const update =(ev)=>{
         ev.preventDefault()
         /**Testing the sweet alert library, ask if it is valid to use it.*/
-        Swal.fire({icon:'warning',
-                   title:'¿Está seguro de que quiere realizar los cambios?',
-                   showDenyButton: true,
-                    confirmButtonText: 'Ok',
-                    denyButtonText: 'Cancelar'
-                })
-        .then((result) =>{
-            /**Here the code of the request is written if the answer is yes */
-            if (result.isConfirmed) {
-                Swal.fire('Tus cambios han sido guardados con exito', '', 'success')
-                }
-            }
-        )
+        // Swal.fire({icon:'warning',
+        //            title:'¿Está seguro de que quiere realizar los cambios?',
+        //            showDenyButton: true,
+        //             confirmButtonText: 'Ok',
+        //             denyButtonText: 'Cancelar'
+        //         })
+        // .then((result) =>{
+        //     /**Here the code of the request is written if the answer is yes */
+        //     if (result.isConfirmed) {
+        //         Swal.fire('Tus cambios han sido guardados con exito', '', 'success')
+        //         }
+        //     }
+        // )
                    
     }
 
