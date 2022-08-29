@@ -20,7 +20,7 @@ function LogIn() {
 
   const login = async (e) => {
     e.preventDefault();
-    await axios.post(URI, { withCredentials: true }, {
+    await axios.post(URI, {
       logUser: logUser,
       logPass: logPass
     }).then(result => console.log(result)).catch(error => console.log(error))
