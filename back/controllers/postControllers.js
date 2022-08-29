@@ -34,17 +34,36 @@ const getPost = async(req,res) => {
 const createPost = async(req,res) => {
     let errors = validationResult(req);
    // console.log(errors);
-    let {content/* ,postImg */} = req.body;
-    let postImg = req.files[0] ? req.files[0].filename :  'default.png' /*null*/;
-    console.log(req.files);
+    let {content} = req.body;
+    //let images = [];
+    //let postImg = req.files[0] ? req.files[0].filename :  null;
+    //console.log(req.files);
+
+     let postImgs = req.files.map(imagen => imagen.filename);
+    
+    //images.push(postImgs)
+    //console.log(images);
+    console.log(postImgs);
+    
+    
+    let pictures = JSON.stringify(postImgs);
+    console.log(pictures);
+
+
     if(!errors.isEmpty()){
-        fs.unlinkSync(`public/posts/${req.files[0].filename}`)
+        /* let img = JSON.stringify(pictures) 
+         console.log(img);
+         for (let i = 0; i < pictures.length; i++) {
+          fs.unlinkSync(`public/posts/{img[i]}`) 
+        } */
+        
         return res.json(errors.mapped())
     }else{
        try {
         await postModel.create({
             content : content,
-            postImg : postImg
+            //postImg : images
+            postImg : pictures
         })
         res.json({
             'message' : 'Post successfully created'
@@ -60,7 +79,7 @@ const updatePost = async (req,res) =>{
     let errors = validationResult(req);
     console.log(errors);
     let {content} = req.body;
-    let postImg = req.files[0] ? req.files[0].filename : 'default.png' 
+    let postImg = req.files[0] ? req.files[0].filename : null; 
     if(!errors.isEmpty()){
         fs.unlinkSync(`public/posts/${req.files[0].filename}`)
         return res.json(errors.mapped())

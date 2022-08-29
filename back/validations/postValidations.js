@@ -13,7 +13,7 @@ module.exports = [
         if(value){
             if(value.mimetype == 'image/png' || value.mimetype == 'image/jpg' || value.mimetype == 'image/jpeg' || value.mimetype == 'image/gif'){
                 return true
-            }else{
+            }else if (!value.mimetype == 'image/png' || !value.mimetype == 'image/jpg' || !value.mimetype == 'image/jpeg' || !value.mimetype == 'image/gif'){ //we have to deny the last condition in case there is no file, it won't show it as an error 
                return false
             }
         }else{

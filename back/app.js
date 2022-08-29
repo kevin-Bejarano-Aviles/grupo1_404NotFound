@@ -4,8 +4,9 @@ const db = require('./database/db');
 const dotenv = require('dotenv');
 const session = require('express-session');
 const methodOverride = require('method-override');
+const cors = require('cors');
 const port = 8000;
-const users = require('./routes/users.js')
+const users = require('./routes/users.js');
 
 
 const postRoute = require('./routes/post.js')
@@ -14,8 +15,9 @@ const postRoute = require('./routes/post.js')
 app.use(express.static('public'))
 
 //para procesar datos enviados desde forms
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+app.use(express.urlencoded({extended:true}));
+app.use(cors());
+app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({ 
     secret: "secret",
