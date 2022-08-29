@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
-import Input from '../components/Input';
+//import input from '../components/input';
 import IconLogIn from '../components/IconLogIn';
 import { Link } from 'react-router-dom';
 
 function SignUpPage() {
   
-  const URI = 'http://localhost:8000/register/';
+  const URI = 'http://localhost:8000/users/register';
   const navigate = useNavigate();
 
   const [name, setName] = useState([]);
@@ -22,7 +22,7 @@ function SignUpPage() {
     createUser();
   },[]);
 
-  const createUser = async () => {
+  const createUser = async (e) => {
     e.preventDefault();
     await axios.post(URI, {
       name: name,
@@ -49,46 +49,46 @@ function SignUpPage() {
               <form action='' onSubmit={createUser}>
 
                 <label htmlFor='name-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Nombre completo</label>
-                <Input
-                  Type="nombre"
-                  Id='name-register'
-                  Name="name"
+                <input
+                  type="nombre"
+                  id='name-register'
+                  name="name"
                   value={name}
                   onChange={e => setName(e.target.value)}
                 />
 
                 <label htmlFor='email-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Email</label>
-                <Input
-                  Type="email"
+                <input
+                  type="email"
                   Id='email-register'
-                  Name="email"
+                  name="email"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                 />
 
                 <label htmlFor='user-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Usuario</label>
-                <Input
-                  Type="user"
-                  Id='user-register'
-                  Name="user"
+                <input
+                  type="user"
+                  id='user-register'
+                  name="user"
                   value={user}
                   onChange={e => setUser(e.target.value)}
                 />
 
                 <label htmlFor='pass-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Contraseña</label>
-                <Input
-                  Type="pass"
-                  Id='pass-register'
-                  Name="pass"
+                <input
+                  type="password"
+                  id='pass-register'
+                  name="pass"
                   value={pass}
                   onChange={e => setPass(e.target.value)}
                 />
 
                 <label htmlFor='pass2-register' className='relative top-8 left-5 font-semibold text-sm text-white'>Repetir contraseña</label>
-                <Input
-                  Type="repita la contraseña"
-                  Name="pass2"
-                  Id='pass2-register'
+                <input
+                  type="password"
+                  name="pass2"
+                  id='pass2-register'
                   value={pass2}
                   onChange={e => setPass2(e.target.value)}
                 />

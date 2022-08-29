@@ -31,6 +31,7 @@ function CommentList({ classList, id }) {
           >
           </textarea>
           <input
+          alt='image'
             type='image'
             className={`${canSendComment ? 'bg-pastelred cursor-pointer' : 'bg-gray-300'} self-start py-2 px-2 text-white font-semibold rounded-full`}
             src={messageIcon}

@@ -1,10 +1,10 @@
-import swa from 'sweetalert2'
+//mport swa from 'sweetalert2'
 import { useState } from "react";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import SetInput from "../components/setInput";
 import avatar from "../img/avatar-default.png";
-import pencil from "../img/el_pencil-alt.svg";
+//import pencil from "../img/el_pencil-alt.svg";
 // import Swal from 'sweetalert2';
 
 
@@ -27,13 +27,13 @@ function ProfilePage(){
     const [email,setEmail] = useState(userData.email);
     const [user,setUser] = useState(userData.user);
     const [password,setPassword] = useState("");
-    const [repitpassword,setRepitpassword] = useState("");
+    //const [repitpassword,setRepitpassword] = useState("");
 
-    const [AdvFullname,setAdvName] = useState(userData.fullName);
+    /* const [AdvFullname,setAdvName] = useState(userData.fullName);
     const [Advemail,setAdvEmail] = useState(userData.email);
     const [Advuser,setAdvUser] = useState(userData.user);
     const [Advpassword,setAdvPassword] = useState("");
-    const [Advrepitpassword,setAdvRepitpassword] = useState("");
+    const [Advrepitpassword,setAdvRepitpassword] = useState(""); */
 
     const update =(ev)=>{
         ev.preventDefault()
@@ -65,7 +65,7 @@ function ProfilePage(){
                 <div className="w-full  mt-20 flex justify-center items-center ">
                     <img className='w-20 absolute rounded-full z-0' src={avatar} alt='Avatar' />
                     <label htmlFor="file" className='flex items-center gap-2'>
-                        <img className="cursor-pointer ml-2 mt-10 absolute z-10" src={pencil} />
+                        {/* <img className="cursor-pointer ml-2 mt-10 absolute z-10" src={pencil} /> */}
                     </label>
                     <input type="file" name='avatar' id='file' className='hidden' accept='image/*' />
                 </div>
