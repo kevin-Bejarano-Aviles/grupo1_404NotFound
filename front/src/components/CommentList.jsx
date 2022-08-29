@@ -5,9 +5,16 @@ import commentExamples from '../json/commentExamples.json';
 
 function CommentList({ classList, id }) {
   const [canSendComment, setcanSendComment] = useState(false);
+  const [errorState, setErrorState] = useState(false);
 
   const handleNewCommentInput = e => {
-    e.target.value ? setcanSendComment(true) : setcanSendComment(false);
+    if (e.target.value) {
+      setcanSendComment(true);
+      setErrorState(false);
+    } else {
+      setcanSendComment(false);
+      setErrorState(true);
+    }
   };
 
   return (
@@ -31,6 +38,9 @@ function CommentList({ classList, id }) {
             onClick={e => e.preventDefault()}
           />
         </div>
+        <p className={`w-10/12 mt-2 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
+          * El comentario no puede enviarse vacío.
+        </p>
       </form>
       <ul>
         {

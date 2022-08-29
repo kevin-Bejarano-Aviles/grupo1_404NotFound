@@ -2,10 +2,17 @@ import { useState } from 'react';
 import iconImage from '../img/icon-add-image.svg';
 
 function NewState() {
-  const [postButtonState, setPostButtonState] = useState(false);
+  const [cansendPost, setCansendPost] = useState(false);
+  const [errorState, setErrorState] = useState(false);
 
   const handleNewStateInput = e => {
-    e.target.value ? setPostButtonState(true) : setPostButtonState(false);
+    if (e.target.value) {
+      setCansendPost(true);
+      setErrorState(false);
+    } else {
+      setCansendPost(false);
+      setErrorState(true);
+    }
   };
 
   return (
@@ -22,6 +29,9 @@ function NewState() {
             onChange={e => handleNewStateInput(e)}
           >
           </textarea>
+          <p className={`w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
+            * La publicación debe contener una descripción.
+          </p>
         </div>
         <div className='flex justify-around items-center py-5'>
           <label htmlFor='file' className='flex items-center gap-2 py-3 px-4 rounded-full cursor-pointer hover:bg-pastelgray'>
@@ -31,8 +41,8 @@ function NewState() {
           <input type='file' id='file' className='hidden' accept='image/*' />
           <button
             type='submit'
-            className={`${postButtonState ? 'bg-pastelred hover:bg-hoverpastelred' : 'bg-gray-300'} py-2 px-7 text-white font-bold rounded-md`}
-            disabled={postButtonState ? false : true}
+            className={`${cansendPost ? 'bg-pastelred hover:bg-hoverpastelred' : 'bg-gray-300'} py-2 px-7 text-white font-bold rounded-md`}
+            disabled={cansendPost ? false : true}
             onClick={e => e.preventDefault()}
           >
             Publicar

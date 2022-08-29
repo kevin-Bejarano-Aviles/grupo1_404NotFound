@@ -5,9 +5,16 @@ import trashIcon from '../img/icon-trash.svg';
 function Comment({ comment }) {
   const [canEditComment, setCanEditComment] = useState(false);
   const [canSaveComment, setCanSaveComment] = useState(true);
+  const [errorState, setErrorState] = useState(false);
 
   const handleCommentText = e => {
-    e.target.value ? setCanSaveComment(true) : setCanSaveComment(false);
+    if (e.target.value) {
+      setCanSaveComment(true);
+      setErrorState(false);
+    } else {
+      setCanSaveComment(false);
+      setErrorState(true);
+    }
   };
 
   const handleCancelButton = () => {
@@ -52,6 +59,9 @@ function Comment({ comment }) {
         >
           {comment.text}
         </textarea>
+        <p className={`ml-9 w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
+          * El comentario no puede enviarse vacío.
+        </p>
         <div className={`flex gap-2 justify-end mr-4 my-3 ${canEditComment ? '' : 'hidden'}`}>
           <input
             type='submit'

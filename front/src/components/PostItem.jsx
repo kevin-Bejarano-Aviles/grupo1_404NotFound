@@ -7,11 +7,11 @@ import iconThreeDots from '../img/icon-three-dots.svg';
 
 
 function PostItem({ post }) {
-
   const [commentState, setCommentState] = useState(false);
   const [menuState, setMenuState] = useState(false);
   const [canEditPost, setCanEditPost] = useState(false);
   const [saveButtonState, setSaveButtonState] = useState(true);
+  const [errorState, setErrorState] = useState(false);
 
   const handleCancelButton = () => {
     document.getElementById(`post-text-${post.id}`).value = post.text;
@@ -19,7 +19,13 @@ function PostItem({ post }) {
   };
 
   const hadlePostTextInput = e => {
-    e.target.value ? setSaveButtonState(true) : setSaveButtonState(false);
+    if (e.target.value) {
+      setSaveButtonState(true);
+      setErrorState(false);
+    } else {
+      setSaveButtonState(false);
+      setErrorState(true);
+    }
   };
 
   return (
@@ -59,6 +65,9 @@ function PostItem({ post }) {
             >
               {post.text}
           </textarea>
+          <p className={`ml-20 mb-2 w-10/12 text-red-500 ${errorState ? 'block' : 'hidden'}`}>
+            * La descripción no puede estar vacía.
+          </p>
           <div className='relative'>
             <div className={`${canEditPost ? '' : 'hidden'} absolute z-10 top-0 bottom-0 right-0 left-0 m-auto flex flex-col gap-3 w-max h-max`}>
               <label htmlFor='file' className='px-4 py-3 font-semibold text-white bg-pastelyellow rounded-md cursor-pointer hover:bg-hoverpastelyellow'>
