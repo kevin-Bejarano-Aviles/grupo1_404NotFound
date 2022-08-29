@@ -7,7 +7,8 @@ import pencil from "../img/el_pencil-alt.svg";
 
 
 function ProfilePage(){
-
+    let stylesInput = "mt-2 mb-2 pl-2 border-2 rounded-full text-slate-600 font-normal focus:outline-none focus:border-yellow-500 focus:ring-yellow-500";
+    let stylesLabel="flex flex-col justify-center w-3/4 text-white font-medium "
     //testing 
     const userData = {
         fullName:"Juan",
@@ -35,24 +36,25 @@ function ProfilePage(){
         
         <>
         <Header/>
-            <div className="m-20">
-            <h1>mi perfil</h1>
-            <form onSubmit={update}>
-                <div className="w-full h-5 m-10 flex justify-center">
+ 
+            <div className="w-full mt-24 mb-24 flex flex-col justify-center items-center	">
+            <h1 className="flex justify-center items-center mt-5 mb-5 ">Mi perfil</h1>
+            <form  className=" bg-pastelred h-98 w-72 mr-auto ml-auto  rounded-3xl" onSubmit={update}>
+                <div className="w-full  mt-20 flex justify-center items-center ">
                     <img className='w-20 absolute rounded-full z-0' src={avatar} alt='Avatar' />
                     <label htmlFor="file" className='flex items-center gap-2'>
-                        <img className="cursor-pointer ml-2 mt-16 absolute z-10" src={pencil} />
+                        <img className="cursor-pointer ml-2 mt-10 absolute z-10" src={pencil} />
                     </label>
                     <input type="file" id='file' className='hidden' accept='image/*' />
                 </div>
-                <div className="w-full flex flex-col justify-center mt-20">
-                    <SetInput Title="Nombre completo" Name="fullname" Type="text" id="name" value={Fullname} styleInput="flex justify-center" styleLabel="flex flex-col justify-center" onChange={ev=> setName(ev.target.value)}/>
-                    <SetInput Title="Usuario" Name="user" Type="text" id="user" value={user} styleInput="" styleLabel="flex flex-col justify-center" onChange={ev=> setUser(ev.target.value)}/>
-                    <SetInput Title="Correo electrónico" Name="email" Type="email" id="user" value={email} styleInput="" styleLabel="flex flex-col justify-center" onChange={ev=> setEmail(ev.target.value)}/>
-                    <SetInput Title="Contraseña Nueva" Name="password" Type="password" id="user" value={password} styleInput="" styleLabel="flex flex-col justify-center" onChange={ev=> setPassword(ev.target.value)}/>
-                    <SetInput Title="Repetir Contraseña" Name="repitPasword" Type="text" id="password" value={repitpassword} styleInput="" styleLabel="flex flex-col justify-center" onChange={ev=> setRepitpassword(ev.target.value)}/>
+                <div className="w-full flex flex-col justify-center mt-20 ml-5">
+                    <SetInput Title="Nombre completo" Name="fullname" Type="text" id="name" value={Fullname} styleInput={stylesInput} styleLabel={stylesLabel} onChange={ev=> setName(ev.target.value)}/>
+                    <SetInput Title="Usuario" Name="user" Type="text" id="user" value={user}  styleInput={stylesInput} styleLabel={stylesLabel} onChange={ev=> setUser(ev.target.value)}/>
+                    <SetInput Title="Correo electrónico" Name="email" Type="email" id="user" value={email} styleInput={stylesInput} styleLabel={stylesLabel} onChange={ev=> setEmail(ev.target.value)}/>
+                    <SetInput Title="Contraseña Nueva" Name="password" Type="password" id="user" value={password} styleInput={stylesInput} styleLabel={stylesLabel} onChange={ev=> setPassword(ev.target.value)}/>
+                    <SetInput Title="Repetir Contraseña" Name="repitPasword" Type="text" id="password" value={repitpassword} styleInput={stylesInput} styleLabel={stylesLabel} onChange={ev=> setRepitpassword(ev.target.value)}/>
                 </div>
-                <button type="submit" className="bg-violet-500 rounded pl-2 pr-2 text-white mt-5 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 ">Guardar datos</button>
+                <button type="submit" className="bg-yellow-400 mt-5 mb-5 ml-auto mr-auto rounded pl-2 pr-2 text-white font-medium flex  hover:bg-yellow-300 active:bg-yellow-300 focus:outline-none focus:ring focus:ring-violet-300 ">Guardar datos</button>
 
             </form>
         </div> 
