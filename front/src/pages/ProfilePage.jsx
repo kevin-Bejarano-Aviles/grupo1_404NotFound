@@ -1,9 +1,11 @@
+import swa from 'sweetalert2'
 import { useState } from "react";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import SetInput from "../components/setInput";
 import avatar from "../img/avatar-default.png";
 import pencil from "../img/el_pencil-alt.svg";
+import Swal from 'sweetalert2';
 
 
 function ProfilePage(){
@@ -29,7 +31,21 @@ function ProfilePage(){
 
     const update =(ev)=>{
         ev.preventDefault()
-        alert("se esta mandano el formulario")
+        /**Testing the sweet alert library, ask if it is valid to use it.*/
+        Swal.fire({icon:'warning',
+                   title:'¿Está seguro de que quiere realizar los cambios?',
+                   showDenyButton: true,
+                    confirmButtonText: 'Ok',
+                    denyButtonText: 'Cancelar'
+                })
+        .then((result) =>{
+            /**Here the code of the request is written if the answer is yes */
+            if (result.isConfirmed) {
+                Swal.fire('Tus cambios han sido guardados con exito', '', 'success')
+                }
+            }
+        )
+                   
     }
 
     return(
@@ -54,8 +70,9 @@ function ProfilePage(){
                     <SetInput Title="Contraseña Nueva" Name="password" Type="password" id="user" value={password} styleInput={stylesInput} styleLabel={stylesLabel} onChange={ev=> setPassword(ev.target.value)}/>
                     <SetInput Title="Repetir Contraseña" Name="repitPasword" Type="text" id="password" value={repitpassword} styleInput={stylesInput} styleLabel={stylesLabel} onChange={ev=> setRepitpassword(ev.target.value)}/>
                 </div>
+                {/**Testing the sweet alert library, ask if it is valid to use it.*/}
                 <button type="submit" className="bg-yellow-400 mt-5 mb-5 ml-auto mr-auto rounded pl-2 pr-2 text-white font-medium flex  hover:bg-yellow-300 active:bg-yellow-300 focus:outline-none focus:ring focus:ring-violet-300 ">Guardar datos</button>
-
+                
             </form>
         </div> 
         <Layout/>
