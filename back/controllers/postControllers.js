@@ -35,28 +35,26 @@ const createPost = async(req,res) => {
     let errors = validationResult(req);
    // console.log(errors);
     let {content} = req.body;
-    //let images = [];
-    //let postImg = req.files[0] ? req.files[0].filename :  null;
+    let postImg = req.files[0] ? req.files[0].filename :  null;
     //console.log(req.files);
 
-     let postImgs = req.files.map(imagen => imagen.filename);
+    //upload more than 1 image
+    //let postImgs = req.files.map(imagen => imagen.filename);
     
-    //images.push(postImgs)
-    //console.log(images);
-    console.log(postImgs);
+    //console.log(postImgs);
     
     
-    let pictures = JSON.stringify(postImgs);
-    console.log(pictures);
+    /* let pictures = JSON.stringify(postImgs);
+    console.log(pictures); */
 
 
     if(!errors.isEmpty()){
         /* let img = JSON.stringify(pictures) 
          console.log(img);
          for (let i = 0; i < pictures.length; i++) {
-          fs.unlinkSync(`public/posts/{img[i]}`) 
+           
         } */
-        
+        fs.unlinkSync(`public/posts/${req.files[0].filename}`)
         return res.json(errors.mapped())
 
     }else{
@@ -64,11 +62,10 @@ const createPost = async(req,res) => {
         await db.query("ALTER TABLE posts AUTO_INCREMENT = 1");
         await postModel.create({
             content : content,
+            
+            //postImg : pictures,
 
-            //postImg : images
-            postImg : pictures,
-
-            //postImg : postImg,
+            postImg : postImg,
             //where esta userId
             usersId: req.session.userLog.id
 
