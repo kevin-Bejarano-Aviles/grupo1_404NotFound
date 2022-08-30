@@ -1,7 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import iconImage from '../img/icon-add-image.svg';
 
 function NewState() {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  const navigate = useNavigate();
+
+  const URI = 'http://localhost:8000/posts';
+
+  const [content, setContent] = useState('');
+  const [postImg, setPostImg] = useState('');
+
+  useEffect(() =>{
+    createPost();
+  },[]);
+
+  const createPost = async (e) => {
+    e.preventDefault();
+    await axios.post(URI, {
+      content: content,
+      postImg: postImg
+    }).then(result => {
+      console.log(result.data)
+    }
+    ).catch(error => console.log(error))
+    navigate('/home');
+  }
+
   const [cansendPost, setCansendPost] = useState(false);
   const [errorState, setErrorState] = useState(false);
 
@@ -17,9 +44,9 @@ function NewState() {
 
   return (
     <article className='flex flex-col px-6 bg-white rounded-2xl shadow-xl'>
-      <form>
+      <form onSubmit={createPost}>
         <div className='flex items-center flex-wrap gap-4 py-5 border-b-2'>
-          <img className='w-10 rounded-full self-start' src='https://www.nbcconstruction.co.uk/wp-content/uploads/2017/12/avatar-default.jpg' alt='Avatar' />
+          <img className='w-10 rounded-full self-start' src={require(`../img/users/${user.avatar}`)} alt='Avatar' />
           <textarea
             id='new-state-input'
             name='content'
@@ -43,7 +70,6 @@ function NewState() {
             type='submit'
             className={`${cansendPost ? 'bg-pastelred hover:bg-hoverpastelred' : 'bg-gray-300'} py-2 px-7 text-white font-bold rounded-md`}
             disabled={cansendPost ? false : true}
-            onClick={e => e.preventDefault()}
           >
             Publicar
           </button>
