@@ -18,12 +18,27 @@ function SignUpPage() {
   const [pass, setPass] = useState([]);
   const [pass2, setPass2] = useState([]);
 
+  // const [cansendLogin, setCansendLogin] = useState(false);
+  // const [errorState, setErrorState] = useState(false);
+
+
+  // const handleNewStateInput = e => {
+  //   if (e.target.value) {
+  //     setCansendLogin(true);
+  //     setErrorState(false);
+  //   } else {
+  //     setCansendLogin(false);
+  //     setErrorState(true);
+  //   }
+  // };
+
   useEffect(() => {
     createUser();
   },[]);
 
   const createUser = async (e) => {
     e.preventDefault();
+    
     await axios.post(URI, {
       name: name,
       email: email,
@@ -57,7 +72,7 @@ function SignUpPage() {
                   value={name}
                   onChange={e => setName(e.target.value)}
                 />
-
+                  <p></p>
                 <label htmlFor='email-register' className='text-pastelgray font-semibold text-sm text-white'>Email</label>
                 <input
                   className='h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5'

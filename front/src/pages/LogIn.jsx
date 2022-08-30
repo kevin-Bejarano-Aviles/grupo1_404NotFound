@@ -14,6 +14,20 @@ function LogIn() {
   const [logUser, setLogUser] = useState('');
   const [logPass, setLogPass] = useState('');
 
+  // const [cansendLogin, setCansendLogin] = useState(false);
+  // const [errorState, setErrorState] = useState(false);
+
+
+  // const handleNewStateInput = e => {
+  //   if (e.target.value) {
+  //     setCansendLogin(true);
+  //     setErrorState(false);
+  //   } else {
+  //     setCansendLogin(false);
+  //     setErrorState(true);
+  //   }
+  // };
+
   useEffect(() =>{
     login();
   },[]);
@@ -23,8 +37,15 @@ function LogIn() {
     await axios.post(URI, {
       logUser: logUser,
       logPass: logPass
-    }).then(result => console.log(result)).catch(error => console.log(error))
+    }).then(result => {
+      console.log(result.data)
+      const user=result.data
+      localStorage.setItem('user', JSON.stringify(user))    
+    }
+    ).catch(error => console.log(error))
+
     navigate('/home');
+    
   };
 
   return (
@@ -34,7 +55,7 @@ function LogIn() {
         <div className="bg-rose-400 h-80  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
           <form action="" onSubmit={login}>
            <div className='relative top-10 mr-auto ml-auto  w-64 mt-10'>  {/* input container box */}
-            <label htmlFor='name' className='relative top left-5 text-pastelgray'>Nombre</label> {/* title name  */}
+            <label htmlFor='name' className='relative top left-5 text-pastelgray'>usuario</label> {/* title name  */}
             <input
               className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5"
               type="usuario"
@@ -53,7 +74,10 @@ function LogIn() {
               onChange={e => setLogPass(e.target.value)}
             />
             <div className='mr-auto ml-auto w-36 mt-12'>
-            <button className="h-9 w-32 text-pastelgray font-semibold text-sm bg-pastelyellow rounded-3xl shadow outline-none focus:outline-none focus:ring focus:ring-pastelpink pl-1 relative bottom-5 left-3 "  Type="submit" value= "Inicia Sesión">Inicia Sesión</button>
+            <button className="h-9 w-32 text-pastelgray font-semibold text-sm bg-pastelyellow rounded-3xl shadow outline-none focus:outline-none focus:ring focus:ring-pastelpink pl-1 relative bottom-5 left-3 "  
+                    type="submit" 
+                    value= "Inicia Sesión">
+                    Inicia Sesión</button>
             </div>
             </div>
             </form>
