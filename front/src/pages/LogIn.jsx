@@ -38,13 +38,15 @@ function LogIn() {
       logUser: logUser,
       logPass: logPass
     }).then(result => {
-      console.log(result.data)
+      // console.log(result.data)
       const user=result.data
       localStorage.setItem('user', JSON.stringify(user))    
+      navigate('/home');
     }
+
     ).catch(error => console.log(error))
 
-    navigate('/home');
+    
     
   };
 
