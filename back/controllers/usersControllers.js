@@ -51,7 +51,8 @@ exports.login = async (req, res) => {
                 avatar: usuario.avatar,
                 rol: usuario.rol
             };
-            res.json('Conexión existosa');
+            /* res.json('Conexión existosa'); */
+            res.json(req.session.userLog);
         } catch (error) {
             res.json({ message: error.message });
         }

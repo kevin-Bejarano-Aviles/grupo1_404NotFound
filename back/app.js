@@ -16,13 +16,22 @@ app.use(express.static('public'))
 /* path.join(__dirname,'..','front','src','img') */
 //para procesar datos enviados desde forms
 app.use(express.urlencoded({extended:true}));
-app.use(cors());
+app.use(cors({
+  credentials:true,
+  origin:['http://localhost:3000'],
+  methods:['GET','POST','PUT','DELETE']
+}));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(session({ 
     secret: "secret",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie:{
+      expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+      httpOnly: true
+    }
   }));
 const corsOptions={
   optionsSuccessStatus: 200,
