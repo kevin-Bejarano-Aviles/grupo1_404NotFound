@@ -1,9 +1,9 @@
-const {commentModel,postModel,userModel} = require('../models/associations');
-const fs = require('fs');
-const db = require('../database/db');
-const {validationResult} = require('express-validator')
+const {commentModel,postModel,userModel} = require('../models/associations');//require the models with associations
+/* const fs = require('fs'); */
+const db = require('../database/db');//require the database
+const {validationResult} = require('express-validator');//require array of validation
 
-const createComment = async(req,res)=>{
+const createComment = async(req,res)=>{//method to create a comment 
     const {content,cantReactions} = req.body;
     const {idPost} = req.params;
     const errors = validationResult(req)
@@ -17,17 +17,17 @@ const createComment = async(req,res)=>{
                 await commentModel.create({
                     content:content,
                     cantReactions:cantReactions,
-                    usersId:req.session.userLog.id, //req.session.user.id
-                    postId:idPost //
+                    usersId:req.session.userLog.id, 
+                    postId:idPost 
                 });
                 res.json({message:'comment created'});
-            /* } */   
+             
         }
     } catch (error) {
         res.json({message:error})
     }
 };
-const allCommentsByPostId = async(req,res)=>{
+const allCommentsByPostId = async(req,res)=>{//get all comment according to post id
     const {id} = req.params
     try {
         const theComments = await commentModel.findAll({
@@ -41,7 +41,7 @@ const allCommentsByPostId = async(req,res)=>{
         res.json({message:error});
     }
 };
-const showComment = async(req,res)=>{
+const showComment = async(req,res)=>{ //get one comment in specific
     const {id} = req.params;
     try {
         const theComment = await commentModel.findOne({
@@ -57,7 +57,7 @@ const showComment = async(req,res)=>{
         res.json({message:error})
     }
 }
-const editComment = async(req,res)=>{
+const editComment = async(req,res)=>{//update a comment 
     const {id} = req.params
     const {content} = req.body;
    // const commentImg = (req.files) ? req.files[0].filename : "commentDefaut.png";
@@ -83,7 +83,7 @@ const editComment = async(req,res)=>{
         res.json({message:error});
     } 
 };
-const deleteComment = async(req,res)=>{
+const deleteComment = async(req,res)=>{ //delete a comment 
     const {id} = req.params;
     try {
         /* const toDelete = await commentModel.findOne({where:{id:id}});

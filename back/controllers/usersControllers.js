@@ -13,9 +13,10 @@ exports.createUser = async (req, res) => {
     let errors = validationResult(req);
     const { name, user, email } = req.body;
     const avatar = 'default.png';  //This line add to the user a default avatar
-    const pass = await bcryptjs.hash(req.body.pass, 10);//Await bcrypt to hash our password
+    
     if (errors.isEmpty()) {// If our variable errors is empty we await our register to push information to our db
         try {
+            const pass = await bcryptjs.hash(req.body.pass, 10);//Await bcrypt to hash our password
             await db.query("ALTER TABLE users AUTO_INCREMENT = 1");
             await usersModel.create({
                 name: name,

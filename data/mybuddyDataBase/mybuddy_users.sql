@@ -29,10 +29,11 @@ CREATE TABLE `users` (
   `pass` varchar(200) DEFAULT NULL,
   `avatar` varchar(100) DEFAULT NULL,
   `email` varchar(200) DEFAULT NULL,
+  `rol` varchar(45) DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-24 16:36:04
+-- Dump completed on 2022-08-29 15:42:48
