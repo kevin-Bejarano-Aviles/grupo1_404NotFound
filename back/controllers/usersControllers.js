@@ -47,6 +47,7 @@ exports.login = async (req, res) => {
             });
             req.session.userLog = {
                 id: usuario.id,
+                name: usuario.name,
                 user: usuario.user,
                 avatar: usuario.avatar,
                 rol: usuario.rol
