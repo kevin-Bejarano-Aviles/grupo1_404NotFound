@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Edit from '../img/akar-icons_edit.svg'
+import Trash from '../img/heroicons_trash.svg'
 function User( { item }) {
   return (
     <li className=' border-t-2 border-b-2 border-gray-300 relative top-2 mr-6 ml-6  items-center'> {/*  container box with user data */}
@@ -8,8 +9,8 @@ function User( { item }) {
           <div className=' flex justify-center items-center w-1/2'><h4 className='items-center '>{item.name} {item.surname}</h4></div> {/* user's first and last name */}
           <div className=' w-1/4 flex flxe-row  justify-end'>
             <div className=' flex flxe-row w-5/6'>
-          <button className=' w-1/2 bg-blue-900 h-10 rounded-l-lg'><i class="fa-solid fa-pen-to-square"></i></button> {/* edit button */}
-          <button className='bg-rose-300 w-1/2 h-10 rounded-r-lg '><i class="fa-solid fa-trash-can"></i></button></div> {/* delete button */}
+          <button className=' w-1/2 bg-blue-900 h-10 rounded-l-lg flex justify-center items-center'><img src={Edit} alt="" /></button> {/* edit button */}
+          <button className='bg-rose-300 w-1/2 h-10 rounded-r-lg flex justify-center items-center'><img src={Trash} alt="" /></button></div> {/* delete button */}
           </div>
         </div>
     </li>
