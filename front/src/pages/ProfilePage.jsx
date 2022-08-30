@@ -1,4 +1,6 @@
 //mport swa from 'sweetalert2'
+import axios from "axios";
+import { useEffect } from "react";
 import { useState } from "react";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
@@ -12,6 +14,16 @@ function ProfilePage(){
     let stylesInput = "mt-2 mb-2 pl-2 border-2 rounded-full text-slate-600 font-normal focus:outline-none focus:border-yellow-500 focus:ring-yellow-500";
     let stylesLabel="flex flex-col justify-center w-3/4 text-white font-medium "
     //testing 
+    const URI = 'http://localhost:8000/users/profile';
+    
+    const getuserData =async (e) => {
+        await axios.get(URI,{withCredentials:true})
+        .then(response => {
+            console.log(response)            
+        }).catch(error=>{
+            console.log(error)
+        })
+    }
     const userData = {
         fullName:"Juan",
         user:"Juan123",
@@ -34,26 +46,9 @@ function ProfilePage(){
     const [Advuser,setAdvUser] = useState(userData.user);
     const [Advpassword,setAdvPassword] = useState("");
     const [Advrepitpassword,setAdvRepitpassword] = useState(""); */
-
-    const update =(ev)=>{
-        ev.preventDefault()
-        /**Testing the sweet alert library, ask if it is valid to use it.*/
-        // Swal.fire({icon:'warning',
-        //            title:'¿Está seguro de que quiere realizar los cambios?',
-        //            showDenyButton: true,
-        //             confirmButtonText: 'Ok',
-        //             denyButtonText: 'Cancelar'
-        //         })
-        // .then((result) =>{
-        //     /**Here the code of the request is written if the answer is yes */
-        //     if (result.isConfirmed) {
-        //         Swal.fire('Tus cambios han sido guardados con exito', '', 'success')
-        //         }
-        //     }
-        // )
-                   
-    }
-
+    useEffect(() =>{
+        getuserData()
+      },[]);
     return(
         
         <>
@@ -61,7 +56,7 @@ function ProfilePage(){
  
             <div className="w-full mt-24 mb-24 flex flex-col justify-center items-center	">
             <h1 className="flex justify-center items-center mt-5 mb-5 text-3xl bol">Mi perfil</h1>
-            <form  className=" bg-pastelred h-98 w-72 mr-auto ml-auto  rounded-3xl" onSubmit={update}>
+            <form  className=" bg-pastelred h-98 w-72 mr-auto ml-auto  rounded-3xl" >
                 <div className="w-full  mt-20 flex justify-center items-center ">
                     <img className='w-20 absolute rounded-full z-0' src={avatar} alt='Avatar' />
                     <label htmlFor="file" className='flex items-center gap-2'>
