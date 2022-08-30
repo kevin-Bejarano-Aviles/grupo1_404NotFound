@@ -63,7 +63,7 @@ function SignUpPage() {
 
               <form action='' onSubmit={createUser} className='p-4'>
 
-                <label htmlFor='name-register' className='font-semibold text-sm text-white'>Nombre completo</label>
+                <label htmlFor='name-register' className='font-semibold text-sm '>Nombre completo</label>
                 <input
                   className='h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5'
                   type="nombre"
@@ -73,7 +73,7 @@ function SignUpPage() {
                   onChange={e => setName(e.target.value)}
                 />
                   <p></p>
-                <label htmlFor='email-register' className='text-pastelgray font-semibold text-sm text-white'>Email</label>
+                <label htmlFor='email-register' className='text-pastelgray font-semibold text-sm '>Email</label>
                 <input
                   className='h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5'
                   type="email"
@@ -83,7 +83,7 @@ function SignUpPage() {
                   onChange={e => setEmail(e.target.value)}
                 />
 
-                <label htmlFor='user-register' className='text-pastelgray font-semibold text-sm text-white'>Usuario</label>
+                <label htmlFor='user-register' className='text-pastelgray font-semibold text-sm '>Usuario</label>
                 <input
                   className='h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5'
                   type="user"
@@ -93,7 +93,7 @@ function SignUpPage() {
                   onChange={e => setUser(e.target.value)}
                 />
 
-                <label htmlFor='pass-register' className='text-pastelgray font-semibold text-sm text-white'>Contraseña</label>
+                <label htmlFor='pass-register' className='text-pastelgray font-semibold text-sm '>Contraseña</label>
                 <input
                   className='h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5'
                   type="password"
@@ -103,7 +103,7 @@ function SignUpPage() {
                   onChange={e => setPass(e.target.value)}
                 />
 
-                <label htmlFor='pass2-register' className='text-pastelgray font-semibold text-sm text-white'>Repetir contraseña</label>
+                <label htmlFor='pass2-register' className='text-pastelgray font-semibold text-sm '>Repetir contraseña</label>
                 <input
                   className='h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5'
                   type="password"
