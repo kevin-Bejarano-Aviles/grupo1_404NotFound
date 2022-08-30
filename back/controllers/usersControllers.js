@@ -1,17 +1,20 @@
-const usersModel = require("../models/userModel.js")
-const bcryptjs = require('bcryptjs')
+//Require models for our db
+const usersModel = require("../models/userModel.js");
+//Require bcrypt to hash passwords
+const bcryptjs = require('bcryptjs');
+//Require express validator so we can use our validations
 const { validationResult } = require('express-validator');
+//Require fs module
 const fs = require('fs');
+//Require our database
 const db = require('../database/db');
-
 //Method to register users
 exports.createUser = async (req, res) => {
     let errors = validationResult(req);
     const { name, user, email } = req.body;
-    const avatar = 'default.png';  //probar si toma la img default
-    const pass = await bcryptjs.hash(req.body.pass, 10);
-
-    if (errors.isEmpty()) {
+    const avatar = 'default.png';  //This line add to the user a default avatar
+    const pass = await bcryptjs.hash(req.body.pass, 10);//Await bcrypt to hash our password
+    if (errors.isEmpty()) {// If our variable errors is empty we await our register to push information to our db
         try {
             await db.query("ALTER TABLE users AUTO_INCREMENT = 1");
             await usersModel.create({
@@ -28,10 +31,9 @@ exports.createUser = async (req, res) => {
         }
     } else {
         res.json(errors.mapped());
-        //el fs despues
     }
 };
-//No me sale probarlo, loguser y logpass son los names para el form de login
+//Method to login an user
 exports.login = async (req, res) => {
     let errors = validationResult(req);
     const { logUser } = req.body;
@@ -49,7 +51,6 @@ exports.login = async (req, res) => {
                 avatar: usuario.avatar,
                 rol: usuario.rol
             };
-            //console.log(req.session.userLog);
             res.json('Conexión existosa');
         } catch (error) {
             res.json({ message: error.message });
@@ -59,9 +60,7 @@ exports.login = async (req, res) => {
         res.json(errors.mapped());
     }
 };
-
-
-
+//Method to see one user by id
 exports.getUser = async (req, res) => {
     try {
         const user = await usersModel.findByPk(req.session.userLog.id,{attributes:["name", "user", "avatar", "email"]});
@@ -81,9 +80,7 @@ exports.getUser = async (req, res) => {
         res.json({ message: error.message });
     } */
 };
-
-
-
+//Method to edit one user by id
 exports.editUser = async (req, res) => {//falta por ver esto de edit user
     let errors = validationResult(req);
     const {name,user,email} = req.body;
@@ -112,7 +109,7 @@ exports.editUser = async (req, res) => {//falta por ver esto de edit user
         res.json(errors.mapped());
     }
 };
-
+//Method to delete one user by id
 exports.deleteUser = async (req, res) => {
     try {
         if(req.session.userLog.avatar != 'default.png'){
@@ -131,7 +128,7 @@ exports.deleteUser = async (req, res) => {
         res.json({ message: error.message });
     }
 };
-
+//Method to log out
 exports.logOut = async(req,res)=>{
     try {
         req.session.destroy();

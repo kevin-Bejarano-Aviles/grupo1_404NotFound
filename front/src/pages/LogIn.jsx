@@ -34,9 +34,9 @@ function LogIn() {
         <div className="bg-rose-400 h-80  w-72 mr-auto ml-auto relative bottom-10 rounded-3xl">   {/* login form container box */}
           <form action="" onSubmit={login}>
            <div className='relative top-10 mr-auto ml-auto  w-64 mt-10'>  {/* input container box */}
-            <label htmlFor='name' className='relative top left-5 text-pastelgray'>Nombre</label> {/* title name  */}
+            <label htmlFor='name' className='relative top left-5 '>Nombre</label> {/* title name  */}
             <input
-              className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5 "
+              className="h-10 w-64 placeholder-slate-300 text-black relative bg-white rounded-3xl text-sm shadow outline-none pl-5"
               type="usuario"
               name="logUser"
               value={logUser}

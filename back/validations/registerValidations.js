@@ -3,7 +3,6 @@ const {check, validationResult, body} = require('express-validator');
 
 
 module.exports = [
-    //Validaciones para registro de usuarios
     check('name').notEmpty().withMessage('Ingrese su nombre'),
     check('user').isLength({min: 4}).withMessage('El usuario debe tener minimo 4 caracteres')
                  .notEmpty().withMessage('Ingrese un usuario') ,

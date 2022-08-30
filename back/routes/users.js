@@ -1,19 +1,25 @@
-const express = require('express')
-const router = express.Router()
-const { createUser, getUser, login, editUser, deleteUser, logOut } = require('../controllers/usersControllers')
-const upload = require('../middlewares/upAvatar.js')
-const validations = require('../validations/registerValidations.js')
+//Require express modules
+const express = require('express');
+// Router method is saved in a variable
+const router = express.Router();
+//Require usersControllers with their methods
+const { createUser, getUser, login, editUser, deleteUser, logOut } = require('../controllers/usersControllers');
+//Require multer middleware
+const upload = require('../middlewares/upAvatar.js');
+//Require validations for register
+const validations = require('../validations/registerValidations.js');
+//Require validations for login
 const loginValidations = require('../validations/loginValidations.js')
+//Require validations for edit 
 const editValidations = require('../validations/editValidations.js');
 const userCheck = require('../middlewares/userCheck');
-//const adminCheck = require('../middlewares/adminCheck');
-//router para los métodos del controller
-router.get('/',(req,res)=>{res.json({message:'Pag Principal'})});
+//Http with their methods and urls
 router.post('/register', validations, createUser);
 router.get('/profile',userCheck, getUser);
 router.post('/login', loginValidations, login);
 router.get('/logOut',userCheck,logOut);
 router.put('/edit',userCheck,upload.any(),editValidations, editUser);
 router.delete('/delete',userCheck, deleteUser);
+//Export router
 module.exports = router
 
