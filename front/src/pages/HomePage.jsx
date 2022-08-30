@@ -14,7 +14,7 @@ function HomePage() {
   const user = JSON.parse(localStorage.getItem('user'))
   return (
     <div className='flex flex-col gap-8 pt-28 p-4 min-h-screen bg-pastelgray'>
-        <p>{user.name}</p>
+        <p>{user.id}</p>
         <Header />
       <div ref={postSection}>
         <NewState />

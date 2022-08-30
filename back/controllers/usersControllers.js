@@ -44,7 +44,7 @@ exports.login = async (req, res) => {
                 where: {
                     user: logUser
                 },
-                attributes: ['id', 'user', 'avatar', 'rol']
+                attributes: ['id', 'user', 'avatar', 'rol', 'name']
             });
             req.session.userLog = {
                 id: usuario.id,
