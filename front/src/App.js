@@ -5,7 +5,8 @@ import LoginPage from './pages/LogIn';
 import SignUpPage from './pages/SignUpPage';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
-import UserListProfile from './pages/UserListProfile'
+import UserListProfile from './pages/UserListProfile';
+import LogOut from './components/LogOut';
 function App() {
   return (
     <div className='text-pastelblack'>
@@ -16,6 +17,7 @@ function App() {
         <Route path={'/home'} element={<HomePage />} />
         <Route path={'/profile'} element={<ProfilePage />} />
         <Route path={'/user-list-profile'} element={<UserListProfile/>} />
+        <Route path={'/log-out'} element={<LogOut />} />
       </Routes>
     </div>
   );
