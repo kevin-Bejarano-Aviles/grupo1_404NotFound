@@ -4,8 +4,8 @@ const multer = require('multer')
 const path = require('path');
 const storage = multer.diskStorage({ //To save img
     destination: function (req, file, cb) {
-      cb(null,'public/users') //img destination from edit form
-    },/* path.join(__dirname,'..','..','front','src','img','users') */
+      cb(null,path.join(__dirname,'..','..','front','src','img','users')) //img destination from edit form
+    },/*  */
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
       cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname)) 
