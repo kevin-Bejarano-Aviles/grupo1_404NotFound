@@ -68,6 +68,7 @@ exports.getUser = async (req, res) => {
     try {
         const user = await usersModel.findByPk(req.session.userLog.id,{attributes:["name", "user", "avatar", "email"]});
         console.log(req.session.userLog);
+        console.log(req.session);
         res.json(user);
     } catch (error) {
         res.json[{message:error.message}];
